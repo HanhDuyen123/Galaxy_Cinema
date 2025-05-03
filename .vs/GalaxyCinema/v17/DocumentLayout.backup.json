@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\duyentth\\Study\\CNPM\\Galaxy_Cinema\\GalaxyCinema\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxy_cinema\\galaxycinema\\galaxycinema\\views\\actors\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\actors\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxy_cinema\\galaxycinema\\galaxycinema\\controllers\\actorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\controllers\\actorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxy_cinema\\galaxycinema\\galaxycinema\\models\\galaxymodel.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\models\\galaxymodel.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\Galaxy_Cinema\\GalaxyCinema\\GalaxyCinema\\Views\\ACTORs\\Index.cshtml",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\ACTORs\\Index.cshtml",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\Galaxy_Cinema\\GalaxyCinema\\GalaxyCinema\\Views\\ACTORs\\Index.cshtml",
+              "RelativeToolTip": "GalaxyCinema\\Views\\ACTORs\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-02T18:37:30.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ACTORsController.cs",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\Galaxy_Cinema\\GalaxyCinema\\GalaxyCinema\\Controllers\\ACTORsController.cs",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Controllers\\ACTORsController.cs",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\Galaxy_Cinema\\GalaxyCinema\\GalaxyCinema\\Controllers\\ACTORsController.cs",
+              "RelativeToolTip": "GalaxyCinema\\Controllers\\ACTORsController.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T18:37:15.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GalaxyModel.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\Galaxy_Cinema\\GalaxyCinema\\GalaxyCinema\\Models\\GalaxyModel.edmx",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Models\\GalaxyModel.edmx",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\Galaxy_Cinema\\GalaxyCinema\\GalaxyCinema\\Models\\GalaxyModel.edmx [Diagram1]",
+              "RelativeToolTip": "GalaxyCinema\\Models\\GalaxyModel.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-05-02T18:27:02.131Z",
+              "EditorCaption": " [Diagram1]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

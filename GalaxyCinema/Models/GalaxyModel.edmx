@@ -1,0 +1,1391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GalaxyCinemaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACTOR">
+          <Key>
+            <PropertyRef Name="ACTORID" />
+          </Key>
+          <Property Name="ACTORID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACTORNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AGERATING">
+          <Key>
+            <PropertyRef Name="AGEID" />
+          </Key>
+          <Property Name="AGEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AGERATING" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMERID" />
+          </Key>
+          <Property Name="CUSTOMERID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LASTNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FIRSTNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CEMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CPHONE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CPASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CDOB" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DAYCAT">
+          <Key>
+            <PropertyRef Name="DAYCATID" />
+          </Key>
+          <Property Name="DAYCATID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DAYCATNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIRECTOR">
+          <Key>
+            <PropertyRef Name="DIRECTORID" />
+          </Key>
+          <Property Name="DIRECTORID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DIRECTORNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMPLOYEEID" />
+          </Key>
+          <Property Name="EMPLOYEEID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ELASTNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EFIRSTNAME" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EEMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EPHONE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EPASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EDOB" Type="datetime" Nullable="false" />
+          <Property Name="EADDRESS" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EDATEOFWORK" Type="datetime" Nullable="false" />
+          <Property Name="ROLENAME" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GENRE">
+          <Key>
+            <PropertyRef Name="GENREID" />
+          </Key>
+          <Property Name="GENREID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GENRENAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HASACTOR">
+          <Key>
+            <PropertyRef Name="MOVIEID" />
+            <PropertyRef Name="ACTORID" />
+          </Key>
+          <Property Name="MOVIEID" Type="bigint" Nullable="false" />
+          <Property Name="ACTORID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HASGENRE">
+          <Key>
+            <PropertyRef Name="GENREID" />
+            <PropertyRef Name="MOVIEID" />
+          </Key>
+          <Property Name="GENREID" Type="bigint" Nullable="false" />
+          <Property Name="MOVIEID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MOVIE">
+          <Key>
+            <PropertyRef Name="MOVIEID" />
+          </Key>
+          <Property Name="MOVIEID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DIRECTORID" Type="bigint" Nullable="false" />
+          <Property Name="NATIONID" Type="int" Nullable="false" />
+          <Property Name="AGEID" Type="int" Nullable="false" />
+          <Property Name="MOVIENAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="DURATION" Type="int" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="RELEASEDATE" Type="datetime" Nullable="false" />
+          <Property Name="MOVIESTATUS" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="POSTER" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NATION">
+          <Key>
+            <PropertyRef Name="NATIONID" />
+          </Key>
+          <Property Name="NATIONID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NATIONNAME" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PARAMETER">
+          <Key>
+            <PropertyRef Name="PARAMETERID" />
+          </Key>
+          <Property Name="PARAMETERID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PARAMETERDESCRIPTION" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="VALUE" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UNITOFMEASUREMENT" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="APPLYCATION" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAYMENT">
+          <Key>
+            <PropertyRef Name="PAYMENTID" />
+          </Key>
+          <Property Name="PAYMENTID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAYMENTMETHOD" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REVIEW">
+          <Key>
+            <PropertyRef Name="REVIEWID" />
+          </Key>
+          <Property Name="REVIEWID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MOVIEID" Type="bigint" Nullable="false" />
+          <Property Name="CUSTOMERID" Type="bigint" Nullable="false" />
+          <Property Name="COMMENT" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="VOTE" Type="int" Nullable="false" />
+          <Property Name="REVIEWDATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SEAT">
+          <Key>
+            <PropertyRef Name="SEATID" />
+          </Key>
+          <Property Name="SEATID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="THEATERID" Type="bigint" Nullable="false" />
+          <Property Name="SEATNAME" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SHOWTIME">
+          <Key>
+            <PropertyRef Name="SHOWTIMEID" />
+          </Key>
+          <Property Name="SHOWTIMEID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="THEATERID" Type="bigint" Nullable="false" />
+          <Property Name="MOVIEID" Type="bigint" Nullable="false" />
+          <Property Name="STARTTIME" Type="datetime" Nullable="false" />
+          <Property Name="ENDTIME" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="THEATER">
+          <Key>
+            <PropertyRef Name="THEATERID" />
+          </Key>
+          <Property Name="THEATERID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="THEATERNAME" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TICKET">
+          <Key>
+            <PropertyRef Name="TICKETID" />
+          </Key>
+          <Property Name="TICKETID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAYMENTID" Type="bigint" Nullable="false" />
+          <Property Name="CUSTOMERID" Type="bigint" />
+          <Property Name="SHOWTIMEID" Type="bigint" Nullable="false" />
+          <Property Name="EMPLOYEEID" Type="bigint" Nullable="false" />
+          <Property Name="TOTALTICKETS" Type="int" Nullable="false" />
+          <Property Name="TOTALAMOUT" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="TICKETSTATUS" Type="bit" Nullable="false" />
+          <Property Name="SELLDATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TICKETDETAIL">
+          <Key>
+            <PropertyRef Name="TICKETDETAILID" />
+          </Key>
+          <Property Name="TICKETDETAILID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TICKETID" Type="int" Nullable="false" />
+          <Property Name="TICKETPRICEID" Type="int" Nullable="false" />
+          <Property Name="QUANTITY" Type="int" Nullable="false" />
+          <Property Name="TOTALPRICE" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TICKETPRICE">
+          <Key>
+            <PropertyRef Name="TICKETPRICEID" />
+          </Key>
+          <Property Name="TICKETPRICEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TICKETTYPEID" Type="int" Nullable="false" />
+          <Property Name="DAYCATID" Type="int" Nullable="false" />
+          <Property Name="PRICETTICKET" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TICKETSEAT">
+          <Key>
+            <PropertyRef Name="TICKETSEATID" />
+          </Key>
+          <Property Name="TICKETSEATID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TICKETDETAILID" Type="bigint" Nullable="false" />
+          <Property Name="SEATID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TICKETTYPE">
+          <Key>
+            <PropertyRef Name="TICKETTYPEID" />
+          </Key>
+          <Property Name="TICKETTYPEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TICKETTYPENAME" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_HASACTOR_HASACTOR_ACTOR">
+          <End Role="ACTOR" Type="Self.ACTOR" Multiplicity="1" />
+          <End Role="HASACTOR" Type="Self.HASACTOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACTOR">
+              <PropertyRef Name="ACTORID" />
+            </Principal>
+            <Dependent Role="HASACTOR">
+              <PropertyRef Name="ACTORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HASACTOR_HASACTOR2_MOVIE">
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="1" />
+          <End Role="HASACTOR" Type="Self.HASACTOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MOVIE">
+              <PropertyRef Name="MOVIEID" />
+            </Principal>
+            <Dependent Role="HASACTOR">
+              <PropertyRef Name="MOVIEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HASGENRE_HASGENRE_MOVIE">
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="1" />
+          <End Role="HASGENRE" Type="Self.HASGENRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MOVIE">
+              <PropertyRef Name="MOVIEID" />
+            </Principal>
+            <Dependent Role="HASGENRE">
+              <PropertyRef Name="MOVIEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HASGENRE_HASGENRE2_GENRE">
+          <End Role="GENRE" Type="Self.GENRE" Multiplicity="1" />
+          <End Role="HASGENRE" Type="Self.HASGENRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GENRE">
+              <PropertyRef Name="GENREID" />
+            </Principal>
+            <Dependent Role="HASGENRE">
+              <PropertyRef Name="GENREID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIE_DIRECTEDB_DIRECTOR">
+          <End Role="DIRECTOR" Type="Self.DIRECTOR" Multiplicity="1" />
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIRECTOR">
+              <PropertyRef Name="DIRECTORID" />
+            </Principal>
+            <Dependent Role="MOVIE">
+              <PropertyRef Name="DIRECTORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIE_HASAGERAT_AGERATIN">
+          <End Role="AGERATING" Type="Self.AGERATING" Multiplicity="1" />
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGERATING">
+              <PropertyRef Name="AGEID" />
+            </Principal>
+            <Dependent Role="MOVIE">
+              <PropertyRef Name="AGEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIE_PRODUCEDI_NATION">
+          <End Role="NATION" Type="Self.NATION" Multiplicity="1" />
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NATION">
+              <PropertyRef Name="NATIONID" />
+            </Principal>
+            <Dependent Role="MOVIE">
+              <PropertyRef Name="NATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REVIEW_HASREVIEW_MOVIE">
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="1" />
+          <End Role="REVIEW" Type="Self.REVIEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MOVIE">
+              <PropertyRef Name="MOVIEID" />
+            </Principal>
+            <Dependent Role="REVIEW">
+              <PropertyRef Name="MOVIEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REVIEW_WRITES_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="REVIEW" Type="Self.REVIEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMERID" />
+            </Principal>
+            <Dependent Role="REVIEW">
+              <PropertyRef Name="CUSTOMERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SEAT_CONTAINSS_THEATER">
+          <End Role="THEATER" Type="Self.THEATER" Multiplicity="1" />
+          <End Role="SEAT" Type="Self.SEAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THEATER">
+              <PropertyRef Name="THEATERID" />
+            </Principal>
+            <Dependent Role="SEAT">
+              <PropertyRef Name="THEATERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOWTIME_HOSTS_THEATER">
+          <End Role="THEATER" Type="Self.THEATER" Multiplicity="1" />
+          <End Role="SHOWTIME" Type="Self.SHOWTIME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THEATER">
+              <PropertyRef Name="THEATERID" />
+            </Principal>
+            <Dependent Role="SHOWTIME">
+              <PropertyRef Name="THEATERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOWTIME_ISSHOWNIN_MOVIE">
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="1" />
+          <End Role="SHOWTIME" Type="Self.SHOWTIME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MOVIE">
+              <PropertyRef Name="MOVIEID" />
+            </Principal>
+            <Dependent Role="SHOWTIME">
+              <PropertyRef Name="MOVIEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKET_HASTICKET_SHOWTIME">
+          <End Role="SHOWTIME" Type="Self.SHOWTIME" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SHOWTIME">
+              <PropertyRef Name="SHOWTIMEID" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="SHOWTIMEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKET_ISPAIDBY_PAYMENT">
+          <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAYMENT">
+              <PropertyRef Name="PAYMENTID" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="PAYMENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKET_PURCHASES_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMERID" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="CUSTOMERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKET_SELLS_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETDE_HASPRICE_TICKETPR">
+          <End Role="TICKETPRICE" Type="Self.TICKETPRICE" Multiplicity="1" />
+          <End Role="TICKETDETAIL" Type="Self.TICKETDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TICKETPRICE">
+              <PropertyRef Name="TICKETPRICEID" />
+            </Principal>
+            <Dependent Role="TICKETDETAIL">
+              <PropertyRef Name="TICKETPRICEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETDE_INCLUDESD_TICKET">
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="1" />
+          <End Role="TICKETDETAIL" Type="Self.TICKETDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TICKET">
+              <PropertyRef Name="TICKETID" />
+            </Principal>
+            <Dependent Role="TICKETDETAIL">
+              <PropertyRef Name="TICKETID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETPR_APPLIESTO_DAYCAT">
+          <End Role="DAYCAT" Type="Self.DAYCAT" Multiplicity="1" />
+          <End Role="TICKETPRICE" Type="Self.TICKETPRICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAYCAT">
+              <PropertyRef Name="DAYCATID" />
+            </Principal>
+            <Dependent Role="TICKETPRICE">
+              <PropertyRef Name="DAYCATID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETPR_APPLIESTO_TICKETTY">
+          <End Role="TICKETTYPE" Type="Self.TICKETTYPE" Multiplicity="1" />
+          <End Role="TICKETPRICE" Type="Self.TICKETPRICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TICKETTYPE">
+              <PropertyRef Name="TICKETTYPEID" />
+            </Principal>
+            <Dependent Role="TICKETPRICE">
+              <PropertyRef Name="TICKETTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETSE_ASSIGNS_TICKETDE">
+          <End Role="TICKETDETAIL" Type="Self.TICKETDETAIL" Multiplicity="1" />
+          <End Role="TICKETSEAT" Type="Self.TICKETSEAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TICKETDETAIL">
+              <PropertyRef Name="TICKETDETAILID" />
+            </Principal>
+            <Dependent Role="TICKETSEAT">
+              <PropertyRef Name="TICKETDETAILID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETSE_HASSEAT_SEAT">
+          <End Role="SEAT" Type="Self.SEAT" Multiplicity="1" />
+          <End Role="TICKETSEAT" Type="Self.TICKETSEAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEAT">
+              <PropertyRef Name="SEATID" />
+            </Principal>
+            <Dependent Role="TICKETSEAT">
+              <PropertyRef Name="SEATID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GalaxyCinemaModelStoreContainer">
+          <EntitySet Name="ACTOR" EntityType="Self.ACTOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AGERATING" EntityType="Self.AGERATING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAYCAT" EntityType="Self.DAYCAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIRECTOR" EntityType="Self.DIRECTOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GENRE" EntityType="Self.GENRE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HASACTOR" EntityType="Self.HASACTOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HASGENRE" EntityType="Self.HASGENRE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MOVIE" EntityType="Self.MOVIE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NATION" EntityType="Self.NATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARAMETER" EntityType="Self.PARAMETER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAYMENT" EntityType="Self.PAYMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REVIEW" EntityType="Self.REVIEW" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEAT" EntityType="Self.SEAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SHOWTIME" EntityType="Self.SHOWTIME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THEATER" EntityType="Self.THEATER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TICKET" EntityType="Self.TICKET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TICKETDETAIL" EntityType="Self.TICKETDETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TICKETPRICE" EntityType="Self.TICKETPRICE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TICKETSEAT" EntityType="Self.TICKETSEAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TICKETTYPE" EntityType="Self.TICKETTYPE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_HASACTOR_HASACTOR_ACTOR" Association="Self.FK_HASACTOR_HASACTOR_ACTOR">
+            <End Role="ACTOR" EntitySet="ACTOR" />
+            <End Role="HASACTOR" EntitySet="HASACTOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HASACTOR_HASACTOR2_MOVIE" Association="Self.FK_HASACTOR_HASACTOR2_MOVIE">
+            <End Role="MOVIE" EntitySet="MOVIE" />
+            <End Role="HASACTOR" EntitySet="HASACTOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HASGENRE_HASGENRE_MOVIE" Association="Self.FK_HASGENRE_HASGENRE_MOVIE">
+            <End Role="MOVIE" EntitySet="MOVIE" />
+            <End Role="HASGENRE" EntitySet="HASGENRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HASGENRE_HASGENRE2_GENRE" Association="Self.FK_HASGENRE_HASGENRE2_GENRE">
+            <End Role="GENRE" EntitySet="GENRE" />
+            <End Role="HASGENRE" EntitySet="HASGENRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIE_DIRECTEDB_DIRECTOR" Association="Self.FK_MOVIE_DIRECTEDB_DIRECTOR">
+            <End Role="DIRECTOR" EntitySet="DIRECTOR" />
+            <End Role="MOVIE" EntitySet="MOVIE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIE_HASAGERAT_AGERATIN" Association="Self.FK_MOVIE_HASAGERAT_AGERATIN">
+            <End Role="AGERATING" EntitySet="AGERATING" />
+            <End Role="MOVIE" EntitySet="MOVIE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIE_PRODUCEDI_NATION" Association="Self.FK_MOVIE_PRODUCEDI_NATION">
+            <End Role="NATION" EntitySet="NATION" />
+            <End Role="MOVIE" EntitySet="MOVIE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REVIEW_HASREVIEW_MOVIE" Association="Self.FK_REVIEW_HASREVIEW_MOVIE">
+            <End Role="MOVIE" EntitySet="MOVIE" />
+            <End Role="REVIEW" EntitySet="REVIEW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REVIEW_WRITES_CUSTOMER" Association="Self.FK_REVIEW_WRITES_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="REVIEW" EntitySet="REVIEW" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SEAT_CONTAINSS_THEATER" Association="Self.FK_SEAT_CONTAINSS_THEATER">
+            <End Role="THEATER" EntitySet="THEATER" />
+            <End Role="SEAT" EntitySet="SEAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOWTIME_HOSTS_THEATER" Association="Self.FK_SHOWTIME_HOSTS_THEATER">
+            <End Role="THEATER" EntitySet="THEATER" />
+            <End Role="SHOWTIME" EntitySet="SHOWTIME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOWTIME_ISSHOWNIN_MOVIE" Association="Self.FK_SHOWTIME_ISSHOWNIN_MOVIE">
+            <End Role="MOVIE" EntitySet="MOVIE" />
+            <End Role="SHOWTIME" EntitySet="SHOWTIME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKET_HASTICKET_SHOWTIME" Association="Self.FK_TICKET_HASTICKET_SHOWTIME">
+            <End Role="SHOWTIME" EntitySet="SHOWTIME" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKET_ISPAIDBY_PAYMENT" Association="Self.FK_TICKET_ISPAIDBY_PAYMENT">
+            <End Role="PAYMENT" EntitySet="PAYMENT" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKET_PURCHASES_CUSTOMER" Association="Self.FK_TICKET_PURCHASES_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKET_SELLS_EMPLOYEE" Association="Self.FK_TICKET_SELLS_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETDE_HASPRICE_TICKETPR" Association="Self.FK_TICKETDE_HASPRICE_TICKETPR">
+            <End Role="TICKETPRICE" EntitySet="TICKETPRICE" />
+            <End Role="TICKETDETAIL" EntitySet="TICKETDETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETDE_INCLUDESD_TICKET" Association="Self.FK_TICKETDE_INCLUDESD_TICKET">
+            <End Role="TICKET" EntitySet="TICKET" />
+            <End Role="TICKETDETAIL" EntitySet="TICKETDETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETPR_APPLIESTO_DAYCAT" Association="Self.FK_TICKETPR_APPLIESTO_DAYCAT">
+            <End Role="DAYCAT" EntitySet="DAYCAT" />
+            <End Role="TICKETPRICE" EntitySet="TICKETPRICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETPR_APPLIESTO_TICKETTY" Association="Self.FK_TICKETPR_APPLIESTO_TICKETTY">
+            <End Role="TICKETTYPE" EntitySet="TICKETTYPE" />
+            <End Role="TICKETPRICE" EntitySet="TICKETPRICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETSE_ASSIGNS_TICKETDE" Association="Self.FK_TICKETSE_ASSIGNS_TICKETDE">
+            <End Role="TICKETDETAIL" EntitySet="TICKETDETAIL" />
+            <End Role="TICKETSEAT" EntitySet="TICKETSEAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETSE_HASSEAT_SEAT" Association="Self.FK_TICKETSE_HASSEAT_SEAT">
+            <End Role="SEAT" EntitySet="SEAT" />
+            <End Role="TICKETSEAT" EntitySet="TICKETSEAT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GalaxyCinemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACTOR">
+          <Key>
+            <PropertyRef Name="ACTORID" />
+          </Key>
+          <Property Name="ACTORID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACTORNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MOVIEs" Relationship="Self.HASACTOR" FromRole="ACTOR" ToRole="MOVIE" />
+        </EntityType>
+        <EntityType Name="AGERATING">
+          <Key>
+            <PropertyRef Name="AGEID" />
+          </Key>
+          <Property Name="AGEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AGERATING1" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MOVIEs" Relationship="Self.FK_MOVIE_HASAGERAT_AGERATIN" FromRole="AGERATING" ToRole="MOVIE" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMERID" />
+          </Key>
+          <Property Name="CUSTOMERID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LASTNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FIRSTNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CEMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CPHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CPASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CDOB" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="REVIEWs" Relationship="Self.FK_REVIEW_WRITES_CUSTOMER" FromRole="CUSTOMER" ToRole="REVIEW" />
+          <NavigationProperty Name="TICKETs" Relationship="Self.FK_TICKET_PURCHASES_CUSTOMER" FromRole="CUSTOMER" ToRole="TICKET" />
+        </EntityType>
+        <EntityType Name="DAYCAT">
+          <Key>
+            <PropertyRef Name="DAYCATID" />
+          </Key>
+          <Property Name="DAYCATID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DAYCATNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TICKETPRICEs" Relationship="Self.FK_TICKETPR_APPLIESTO_DAYCAT" FromRole="DAYCAT" ToRole="TICKETPRICE" />
+        </EntityType>
+        <EntityType Name="DIRECTOR">
+          <Key>
+            <PropertyRef Name="DIRECTORID" />
+          </Key>
+          <Property Name="DIRECTORID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DIRECTORNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MOVIEs" Relationship="Self.FK_MOVIE_DIRECTEDB_DIRECTOR" FromRole="DIRECTOR" ToRole="MOVIE" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMPLOYEEID" />
+          </Key>
+          <Property Name="EMPLOYEEID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ELASTNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EFIRSTNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EEMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EPHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EPASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EDOB" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EDATEOFWORK" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ROLENAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TICKETs" Relationship="Self.FK_TICKET_SELLS_EMPLOYEE" FromRole="EMPLOYEE" ToRole="TICKET" />
+        </EntityType>
+        <EntityType Name="GENRE">
+          <Key>
+            <PropertyRef Name="GENREID" />
+          </Key>
+          <Property Name="GENREID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GENRENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MOVIEs" Relationship="Self.HASGENRE" FromRole="GENRE" ToRole="MOVIE" />
+        </EntityType>
+        <EntityType Name="MOVIE">
+          <Key>
+            <PropertyRef Name="MOVIEID" />
+          </Key>
+          <Property Name="MOVIEID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DIRECTORID" Type="Int64" Nullable="false" />
+          <Property Name="NATIONID" Type="Int32" Nullable="false" />
+          <Property Name="AGEID" Type="Int32" Nullable="false" />
+          <Property Name="MOVIENAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DURATION" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RELEASEDATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MOVIESTATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="POSTER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AGERATING" Relationship="Self.FK_MOVIE_HASAGERAT_AGERATIN" FromRole="MOVIE" ToRole="AGERATING" />
+          <NavigationProperty Name="DIRECTOR" Relationship="Self.FK_MOVIE_DIRECTEDB_DIRECTOR" FromRole="MOVIE" ToRole="DIRECTOR" />
+          <NavigationProperty Name="NATION" Relationship="Self.FK_MOVIE_PRODUCEDI_NATION" FromRole="MOVIE" ToRole="NATION" />
+          <NavigationProperty Name="REVIEWs" Relationship="Self.FK_REVIEW_HASREVIEW_MOVIE" FromRole="MOVIE" ToRole="REVIEW" />
+          <NavigationProperty Name="SHOWTIMEs" Relationship="Self.FK_SHOWTIME_ISSHOWNIN_MOVIE" FromRole="MOVIE" ToRole="SHOWTIME" />
+          <NavigationProperty Name="ACTORs" Relationship="Self.HASACTOR" FromRole="MOVIE" ToRole="ACTOR" />
+          <NavigationProperty Name="GENREs" Relationship="Self.HASGENRE" FromRole="MOVIE" ToRole="GENRE" />
+        </EntityType>
+        <EntityType Name="NATION">
+          <Key>
+            <PropertyRef Name="NATIONID" />
+          </Key>
+          <Property Name="NATIONID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NATIONNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MOVIEs" Relationship="Self.FK_MOVIE_PRODUCEDI_NATION" FromRole="NATION" ToRole="MOVIE" />
+        </EntityType>
+        <EntityType Name="PARAMETER">
+          <Key>
+            <PropertyRef Name="PARAMETERID" />
+          </Key>
+          <Property Name="PARAMETERID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PARAMETERDESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VALUE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UNITOFMEASUREMENT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="APPLYCATION" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAYMENT">
+          <Key>
+            <PropertyRef Name="PAYMENTID" />
+          </Key>
+          <Property Name="PAYMENTID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAYMENTMETHOD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TICKETs" Relationship="Self.FK_TICKET_ISPAIDBY_PAYMENT" FromRole="PAYMENT" ToRole="TICKET" />
+        </EntityType>
+        <EntityType Name="REVIEW">
+          <Key>
+            <PropertyRef Name="REVIEWID" />
+          </Key>
+          <Property Name="REVIEWID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MOVIEID" Type="Int64" Nullable="false" />
+          <Property Name="CUSTOMERID" Type="Int64" Nullable="false" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VOTE" Type="Int32" Nullable="false" />
+          <Property Name="REVIEWDATE" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_REVIEW_WRITES_CUSTOMER" FromRole="REVIEW" ToRole="CUSTOMER" />
+          <NavigationProperty Name="MOVIE" Relationship="Self.FK_REVIEW_HASREVIEW_MOVIE" FromRole="REVIEW" ToRole="MOVIE" />
+        </EntityType>
+        <EntityType Name="SEAT">
+          <Key>
+            <PropertyRef Name="SEATID" />
+          </Key>
+          <Property Name="SEATID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="THEATERID" Type="Int64" Nullable="false" />
+          <Property Name="SEATNAME" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="THEATER" Relationship="Self.FK_SEAT_CONTAINSS_THEATER" FromRole="SEAT" ToRole="THEATER" />
+          <NavigationProperty Name="TICKETSEATs" Relationship="Self.FK_TICKETSE_HASSEAT_SEAT" FromRole="SEAT" ToRole="TICKETSEAT" />
+        </EntityType>
+        <EntityType Name="SHOWTIME">
+          <Key>
+            <PropertyRef Name="SHOWTIMEID" />
+          </Key>
+          <Property Name="SHOWTIMEID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="THEATERID" Type="Int64" Nullable="false" />
+          <Property Name="MOVIEID" Type="Int64" Nullable="false" />
+          <Property Name="STARTTIME" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ENDTIME" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="MOVIE" Relationship="Self.FK_SHOWTIME_ISSHOWNIN_MOVIE" FromRole="SHOWTIME" ToRole="MOVIE" />
+          <NavigationProperty Name="THEATER" Relationship="Self.FK_SHOWTIME_HOSTS_THEATER" FromRole="SHOWTIME" ToRole="THEATER" />
+          <NavigationProperty Name="TICKETs" Relationship="Self.FK_TICKET_HASTICKET_SHOWTIME" FromRole="SHOWTIME" ToRole="TICKET" />
+        </EntityType>
+        <EntityType Name="THEATER">
+          <Key>
+            <PropertyRef Name="THEATERID" />
+          </Key>
+          <Property Name="THEATERID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="THEATERNAME" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SEATs" Relationship="Self.FK_SEAT_CONTAINSS_THEATER" FromRole="THEATER" ToRole="SEAT" />
+          <NavigationProperty Name="SHOWTIMEs" Relationship="Self.FK_SHOWTIME_HOSTS_THEATER" FromRole="THEATER" ToRole="SHOWTIME" />
+        </EntityType>
+        <EntityType Name="TICKET">
+          <Key>
+            <PropertyRef Name="TICKETID" />
+          </Key>
+          <Property Name="TICKETID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAYMENTID" Type="Int64" Nullable="false" />
+          <Property Name="CUSTOMERID" Type="Int64" />
+          <Property Name="SHOWTIMEID" Type="Int64" Nullable="false" />
+          <Property Name="EMPLOYEEID" Type="Int64" Nullable="false" />
+          <Property Name="TOTALTICKETS" Type="Int32" Nullable="false" />
+          <Property Name="TOTALAMOUT" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="TICKETSTATUS" Type="Boolean" Nullable="false" />
+          <Property Name="SELLDATE" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_TICKET_PURCHASES_CUSTOMER" FromRole="TICKET" ToRole="CUSTOMER" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_TICKET_SELLS_EMPLOYEE" FromRole="TICKET" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="PAYMENT" Relationship="Self.FK_TICKET_ISPAIDBY_PAYMENT" FromRole="TICKET" ToRole="PAYMENT" />
+          <NavigationProperty Name="SHOWTIME" Relationship="Self.FK_TICKET_HASTICKET_SHOWTIME" FromRole="TICKET" ToRole="SHOWTIME" />
+          <NavigationProperty Name="TICKETDETAILs" Relationship="Self.FK_TICKETDE_INCLUDESD_TICKET" FromRole="TICKET" ToRole="TICKETDETAIL" />
+        </EntityType>
+        <EntityType Name="TICKETDETAIL">
+          <Key>
+            <PropertyRef Name="TICKETDETAILID" />
+          </Key>
+          <Property Name="TICKETDETAILID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TICKETID" Type="Int32" Nullable="false" />
+          <Property Name="TICKETPRICEID" Type="Int32" Nullable="false" />
+          <Property Name="QUANTITY" Type="Int32" Nullable="false" />
+          <Property Name="TOTALPRICE" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <NavigationProperty Name="TICKET" Relationship="Self.FK_TICKETDE_INCLUDESD_TICKET" FromRole="TICKETDETAIL" ToRole="TICKET" />
+          <NavigationProperty Name="TICKETPRICE" Relationship="Self.FK_TICKETDE_HASPRICE_TICKETPR" FromRole="TICKETDETAIL" ToRole="TICKETPRICE" />
+          <NavigationProperty Name="TICKETSEATs" Relationship="Self.FK_TICKETSE_ASSIGNS_TICKETDE" FromRole="TICKETDETAIL" ToRole="TICKETSEAT" />
+        </EntityType>
+        <EntityType Name="TICKETPRICE">
+          <Key>
+            <PropertyRef Name="TICKETPRICEID" />
+          </Key>
+          <Property Name="TICKETPRICEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TICKETTYPEID" Type="Int32" Nullable="false" />
+          <Property Name="DAYCATID" Type="Int32" Nullable="false" />
+          <Property Name="PRICETTICKET" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <NavigationProperty Name="DAYCAT" Relationship="Self.FK_TICKETPR_APPLIESTO_DAYCAT" FromRole="TICKETPRICE" ToRole="DAYCAT" />
+          <NavigationProperty Name="TICKETDETAILs" Relationship="Self.FK_TICKETDE_HASPRICE_TICKETPR" FromRole="TICKETPRICE" ToRole="TICKETDETAIL" />
+          <NavigationProperty Name="TICKETTYPE" Relationship="Self.FK_TICKETPR_APPLIESTO_TICKETTY" FromRole="TICKETPRICE" ToRole="TICKETTYPE" />
+        </EntityType>
+        <EntityType Name="TICKETSEAT">
+          <Key>
+            <PropertyRef Name="TICKETSEATID" />
+          </Key>
+          <Property Name="TICKETSEATID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TICKETDETAILID" Type="Int64" Nullable="false" />
+          <Property Name="SEATID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="SEAT" Relationship="Self.FK_TICKETSE_HASSEAT_SEAT" FromRole="TICKETSEAT" ToRole="SEAT" />
+          <NavigationProperty Name="TICKETDETAIL" Relationship="Self.FK_TICKETSE_ASSIGNS_TICKETDE" FromRole="TICKETSEAT" ToRole="TICKETDETAIL" />
+        </EntityType>
+        <EntityType Name="TICKETTYPE">
+          <Key>
+            <PropertyRef Name="TICKETTYPEID" />
+          </Key>
+          <Property Name="TICKETTYPEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TICKETTYPENAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TICKETPRICEs" Relationship="Self.FK_TICKETPR_APPLIESTO_TICKETTY" FromRole="TICKETTYPE" ToRole="TICKETPRICE" />
+        </EntityType>
+        <Association Name="FK_MOVIE_HASAGERAT_AGERATIN">
+          <End Role="AGERATING" Type="Self.AGERATING" Multiplicity="1" />
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGERATING">
+              <PropertyRef Name="AGEID" />
+            </Principal>
+            <Dependent Role="MOVIE">
+              <PropertyRef Name="AGEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REVIEW_WRITES_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="REVIEW" Type="Self.REVIEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMERID" />
+            </Principal>
+            <Dependent Role="REVIEW">
+              <PropertyRef Name="CUSTOMERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKET_PURCHASES_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMERID" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="CUSTOMERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETPR_APPLIESTO_DAYCAT">
+          <End Role="DAYCAT" Type="Self.DAYCAT" Multiplicity="1" />
+          <End Role="TICKETPRICE" Type="Self.TICKETPRICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DAYCAT">
+              <PropertyRef Name="DAYCATID" />
+            </Principal>
+            <Dependent Role="TICKETPRICE">
+              <PropertyRef Name="DAYCATID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIE_DIRECTEDB_DIRECTOR">
+          <End Role="DIRECTOR" Type="Self.DIRECTOR" Multiplicity="1" />
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIRECTOR">
+              <PropertyRef Name="DIRECTORID" />
+            </Principal>
+            <Dependent Role="MOVIE">
+              <PropertyRef Name="DIRECTORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKET_SELLS_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="EMPLOYEEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MOVIE_PRODUCEDI_NATION">
+          <End Role="NATION" Type="Self.NATION" Multiplicity="1" />
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NATION">
+              <PropertyRef Name="NATIONID" />
+            </Principal>
+            <Dependent Role="MOVIE">
+              <PropertyRef Name="NATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REVIEW_HASREVIEW_MOVIE">
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="1" />
+          <End Role="REVIEW" Type="Self.REVIEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MOVIE">
+              <PropertyRef Name="MOVIEID" />
+            </Principal>
+            <Dependent Role="REVIEW">
+              <PropertyRef Name="MOVIEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOWTIME_ISSHOWNIN_MOVIE">
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="1" />
+          <End Role="SHOWTIME" Type="Self.SHOWTIME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MOVIE">
+              <PropertyRef Name="MOVIEID" />
+            </Principal>
+            <Dependent Role="SHOWTIME">
+              <PropertyRef Name="MOVIEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKET_ISPAIDBY_PAYMENT">
+          <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAYMENT">
+              <PropertyRef Name="PAYMENTID" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="PAYMENTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SEAT_CONTAINSS_THEATER">
+          <End Role="THEATER" Type="Self.THEATER" Multiplicity="1" />
+          <End Role="SEAT" Type="Self.SEAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THEATER">
+              <PropertyRef Name="THEATERID" />
+            </Principal>
+            <Dependent Role="SEAT">
+              <PropertyRef Name="THEATERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETSE_HASSEAT_SEAT">
+          <End Role="SEAT" Type="Self.SEAT" Multiplicity="1" />
+          <End Role="TICKETSEAT" Type="Self.TICKETSEAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEAT">
+              <PropertyRef Name="SEATID" />
+            </Principal>
+            <Dependent Role="TICKETSEAT">
+              <PropertyRef Name="SEATID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHOWTIME_HOSTS_THEATER">
+          <End Role="THEATER" Type="Self.THEATER" Multiplicity="1" />
+          <End Role="SHOWTIME" Type="Self.SHOWTIME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THEATER">
+              <PropertyRef Name="THEATERID" />
+            </Principal>
+            <Dependent Role="SHOWTIME">
+              <PropertyRef Name="THEATERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKET_HASTICKET_SHOWTIME">
+          <End Role="SHOWTIME" Type="Self.SHOWTIME" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SHOWTIME">
+              <PropertyRef Name="SHOWTIMEID" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="SHOWTIMEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETDE_INCLUDESD_TICKET">
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="1" />
+          <End Role="TICKETDETAIL" Type="Self.TICKETDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TICKET">
+              <PropertyRef Name="TICKETID" />
+            </Principal>
+            <Dependent Role="TICKETDETAIL">
+              <PropertyRef Name="TICKETID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETDE_HASPRICE_TICKETPR">
+          <End Role="TICKETPRICE" Type="Self.TICKETPRICE" Multiplicity="1" />
+          <End Role="TICKETDETAIL" Type="Self.TICKETDETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TICKETPRICE">
+              <PropertyRef Name="TICKETPRICEID" />
+            </Principal>
+            <Dependent Role="TICKETDETAIL">
+              <PropertyRef Name="TICKETPRICEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETSE_ASSIGNS_TICKETDE">
+          <End Role="TICKETDETAIL" Type="Self.TICKETDETAIL" Multiplicity="1" />
+          <End Role="TICKETSEAT" Type="Self.TICKETSEAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TICKETDETAIL">
+              <PropertyRef Name="TICKETDETAILID" />
+            </Principal>
+            <Dependent Role="TICKETSEAT">
+              <PropertyRef Name="TICKETDETAILID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TICKETPR_APPLIESTO_TICKETTY">
+          <End Role="TICKETTYPE" Type="Self.TICKETTYPE" Multiplicity="1" />
+          <End Role="TICKETPRICE" Type="Self.TICKETPRICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TICKETTYPE">
+              <PropertyRef Name="TICKETTYPEID" />
+            </Principal>
+            <Dependent Role="TICKETPRICE">
+              <PropertyRef Name="TICKETTYPEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HASACTOR">
+          <End Role="ACTOR" Type="Self.ACTOR" Multiplicity="*" />
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="*" />
+        </Association>
+        <Association Name="HASGENRE">
+          <End Role="MOVIE" Type="Self.MOVIE" Multiplicity="*" />
+          <End Role="GENRE" Type="Self.GENRE" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="GalaxyCinemaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACTORs" EntityType="Self.ACTOR" />
+          <EntitySet Name="AGERATINGs" EntityType="Self.AGERATING" />
+          <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="DAYCATs" EntityType="Self.DAYCAT" />
+          <EntitySet Name="DIRECTORs" EntityType="Self.DIRECTOR" />
+          <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+          <EntitySet Name="GENREs" EntityType="Self.GENRE" />
+          <EntitySet Name="MOVIEs" EntityType="Self.MOVIE" />
+          <EntitySet Name="NATIONs" EntityType="Self.NATION" />
+          <EntitySet Name="PARAMETERs" EntityType="Self.PARAMETER" />
+          <EntitySet Name="PAYMENTs" EntityType="Self.PAYMENT" />
+          <EntitySet Name="REVIEWs" EntityType="Self.REVIEW" />
+          <EntitySet Name="SEATs" EntityType="Self.SEAT" />
+          <EntitySet Name="SHOWTIMEs" EntityType="Self.SHOWTIME" />
+          <EntitySet Name="THEATERs" EntityType="Self.THEATER" />
+          <EntitySet Name="TICKETs" EntityType="Self.TICKET" />
+          <EntitySet Name="TICKETDETAILs" EntityType="Self.TICKETDETAIL" />
+          <EntitySet Name="TICKETPRICEs" EntityType="Self.TICKETPRICE" />
+          <EntitySet Name="TICKETSEATs" EntityType="Self.TICKETSEAT" />
+          <EntitySet Name="TICKETTYPEs" EntityType="Self.TICKETTYPE" />
+          <AssociationSet Name="FK_MOVIE_HASAGERAT_AGERATIN" Association="Self.FK_MOVIE_HASAGERAT_AGERATIN">
+            <End Role="AGERATING" EntitySet="AGERATINGs" />
+            <End Role="MOVIE" EntitySet="MOVIEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REVIEW_WRITES_CUSTOMER" Association="Self.FK_REVIEW_WRITES_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="REVIEW" EntitySet="REVIEWs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKET_PURCHASES_CUSTOMER" Association="Self.FK_TICKET_PURCHASES_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="TICKET" EntitySet="TICKETs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETPR_APPLIESTO_DAYCAT" Association="Self.FK_TICKETPR_APPLIESTO_DAYCAT">
+            <End Role="DAYCAT" EntitySet="DAYCATs" />
+            <End Role="TICKETPRICE" EntitySet="TICKETPRICEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIE_DIRECTEDB_DIRECTOR" Association="Self.FK_MOVIE_DIRECTEDB_DIRECTOR">
+            <End Role="DIRECTOR" EntitySet="DIRECTORs" />
+            <End Role="MOVIE" EntitySet="MOVIEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKET_SELLS_EMPLOYEE" Association="Self.FK_TICKET_SELLS_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="TICKET" EntitySet="TICKETs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MOVIE_PRODUCEDI_NATION" Association="Self.FK_MOVIE_PRODUCEDI_NATION">
+            <End Role="NATION" EntitySet="NATIONs" />
+            <End Role="MOVIE" EntitySet="MOVIEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REVIEW_HASREVIEW_MOVIE" Association="Self.FK_REVIEW_HASREVIEW_MOVIE">
+            <End Role="MOVIE" EntitySet="MOVIEs" />
+            <End Role="REVIEW" EntitySet="REVIEWs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOWTIME_ISSHOWNIN_MOVIE" Association="Self.FK_SHOWTIME_ISSHOWNIN_MOVIE">
+            <End Role="MOVIE" EntitySet="MOVIEs" />
+            <End Role="SHOWTIME" EntitySet="SHOWTIMEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKET_ISPAIDBY_PAYMENT" Association="Self.FK_TICKET_ISPAIDBY_PAYMENT">
+            <End Role="PAYMENT" EntitySet="PAYMENTs" />
+            <End Role="TICKET" EntitySet="TICKETs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SEAT_CONTAINSS_THEATER" Association="Self.FK_SEAT_CONTAINSS_THEATER">
+            <End Role="THEATER" EntitySet="THEATERs" />
+            <End Role="SEAT" EntitySet="SEATs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETSE_HASSEAT_SEAT" Association="Self.FK_TICKETSE_HASSEAT_SEAT">
+            <End Role="SEAT" EntitySet="SEATs" />
+            <End Role="TICKETSEAT" EntitySet="TICKETSEATs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHOWTIME_HOSTS_THEATER" Association="Self.FK_SHOWTIME_HOSTS_THEATER">
+            <End Role="THEATER" EntitySet="THEATERs" />
+            <End Role="SHOWTIME" EntitySet="SHOWTIMEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKET_HASTICKET_SHOWTIME" Association="Self.FK_TICKET_HASTICKET_SHOWTIME">
+            <End Role="SHOWTIME" EntitySet="SHOWTIMEs" />
+            <End Role="TICKET" EntitySet="TICKETs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETDE_INCLUDESD_TICKET" Association="Self.FK_TICKETDE_INCLUDESD_TICKET">
+            <End Role="TICKET" EntitySet="TICKETs" />
+            <End Role="TICKETDETAIL" EntitySet="TICKETDETAILs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETDE_HASPRICE_TICKETPR" Association="Self.FK_TICKETDE_HASPRICE_TICKETPR">
+            <End Role="TICKETPRICE" EntitySet="TICKETPRICEs" />
+            <End Role="TICKETDETAIL" EntitySet="TICKETDETAILs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETSE_ASSIGNS_TICKETDE" Association="Self.FK_TICKETSE_ASSIGNS_TICKETDE">
+            <End Role="TICKETDETAIL" EntitySet="TICKETDETAILs" />
+            <End Role="TICKETSEAT" EntitySet="TICKETSEATs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TICKETPR_APPLIESTO_TICKETTY" Association="Self.FK_TICKETPR_APPLIESTO_TICKETTY">
+            <End Role="TICKETTYPE" EntitySet="TICKETTYPEs" />
+            <End Role="TICKETPRICE" EntitySet="TICKETPRICEs" />
+          </AssociationSet>
+          <AssociationSet Name="HASACTOR" Association="Self.HASACTOR">
+            <End Role="ACTOR" EntitySet="ACTORs" />
+            <End Role="MOVIE" EntitySet="MOVIEs" />
+          </AssociationSet>
+          <AssociationSet Name="HASGENRE" Association="Self.HASGENRE">
+            <End Role="MOVIE" EntitySet="MOVIEs" />
+            <End Role="GENRE" EntitySet="GENREs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GalaxyCinemaModelStoreContainer" CdmEntityContainer="GalaxyCinemaEntities">
+          <EntitySetMapping Name="ACTORs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.ACTOR">
+              <MappingFragment StoreEntitySet="ACTOR">
+                <ScalarProperty Name="ACTORID" ColumnName="ACTORID" />
+                <ScalarProperty Name="ACTORNAME" ColumnName="ACTORNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AGERATINGs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.AGERATING">
+              <MappingFragment StoreEntitySet="AGERATING">
+                <ScalarProperty Name="AGEID" ColumnName="AGEID" />
+                <ScalarProperty Name="AGERATING1" ColumnName="AGERATING" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="CUSTOMERID" ColumnName="CUSTOMERID" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="CEMAIL" ColumnName="CEMAIL" />
+                <ScalarProperty Name="CPHONE" ColumnName="CPHONE" />
+                <ScalarProperty Name="CPASSWORD" ColumnName="CPASSWORD" />
+                <ScalarProperty Name="CDOB" ColumnName="CDOB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAYCATs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.DAYCAT">
+              <MappingFragment StoreEntitySet="DAYCAT">
+                <ScalarProperty Name="DAYCATID" ColumnName="DAYCATID" />
+                <ScalarProperty Name="DAYCATNAME" ColumnName="DAYCATNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIRECTORs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.DIRECTOR">
+              <MappingFragment StoreEntitySet="DIRECTOR">
+                <ScalarProperty Name="DIRECTORID" ColumnName="DIRECTORID" />
+                <ScalarProperty Name="DIRECTORNAME" ColumnName="DIRECTORNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEEs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+                <ScalarProperty Name="ELASTNAME" ColumnName="ELASTNAME" />
+                <ScalarProperty Name="EFIRSTNAME" ColumnName="EFIRSTNAME" />
+                <ScalarProperty Name="EEMAIL" ColumnName="EEMAIL" />
+                <ScalarProperty Name="EPHONE" ColumnName="EPHONE" />
+                <ScalarProperty Name="EPASSWORD" ColumnName="EPASSWORD" />
+                <ScalarProperty Name="EDOB" ColumnName="EDOB" />
+                <ScalarProperty Name="EADDRESS" ColumnName="EADDRESS" />
+                <ScalarProperty Name="EDATEOFWORK" ColumnName="EDATEOFWORK" />
+                <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GENREs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.GENRE">
+              <MappingFragment StoreEntitySet="GENRE">
+                <ScalarProperty Name="GENREID" ColumnName="GENREID" />
+                <ScalarProperty Name="GENRENAME" ColumnName="GENRENAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MOVIEs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.MOVIE">
+              <MappingFragment StoreEntitySet="MOVIE">
+                <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+                <ScalarProperty Name="DIRECTORID" ColumnName="DIRECTORID" />
+                <ScalarProperty Name="NATIONID" ColumnName="NATIONID" />
+                <ScalarProperty Name="AGEID" ColumnName="AGEID" />
+                <ScalarProperty Name="MOVIENAME" ColumnName="MOVIENAME" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="RELEASEDATE" ColumnName="RELEASEDATE" />
+                <ScalarProperty Name="MOVIESTATUS" ColumnName="MOVIESTATUS" />
+                <ScalarProperty Name="POSTER" ColumnName="POSTER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NATIONs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.NATION">
+              <MappingFragment StoreEntitySet="NATION">
+                <ScalarProperty Name="NATIONID" ColumnName="NATIONID" />
+                <ScalarProperty Name="NATIONNAME" ColumnName="NATIONNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARAMETERs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.PARAMETER">
+              <MappingFragment StoreEntitySet="PARAMETER">
+                <ScalarProperty Name="PARAMETERID" ColumnName="PARAMETERID" />
+                <ScalarProperty Name="PARAMETERDESCRIPTION" ColumnName="PARAMETERDESCRIPTION" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="UNITOFMEASUREMENT" ColumnName="UNITOFMEASUREMENT" />
+                <ScalarProperty Name="APPLYCATION" ColumnName="APPLYCATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAYMENTs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.PAYMENT">
+              <MappingFragment StoreEntitySet="PAYMENT">
+                <ScalarProperty Name="PAYMENTID" ColumnName="PAYMENTID" />
+                <ScalarProperty Name="PAYMENTMETHOD" ColumnName="PAYMENTMETHOD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REVIEWs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.REVIEW">
+              <MappingFragment StoreEntitySet="REVIEW">
+                <ScalarProperty Name="REVIEWID" ColumnName="REVIEWID" />
+                <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+                <ScalarProperty Name="CUSTOMERID" ColumnName="CUSTOMERID" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="VOTE" ColumnName="VOTE" />
+                <ScalarProperty Name="REVIEWDATE" ColumnName="REVIEWDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEATs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.SEAT">
+              <MappingFragment StoreEntitySet="SEAT">
+                <ScalarProperty Name="SEATID" ColumnName="SEATID" />
+                <ScalarProperty Name="THEATERID" ColumnName="THEATERID" />
+                <ScalarProperty Name="SEATNAME" ColumnName="SEATNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SHOWTIMEs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.SHOWTIME">
+              <MappingFragment StoreEntitySet="SHOWTIME">
+                <ScalarProperty Name="SHOWTIMEID" ColumnName="SHOWTIMEID" />
+                <ScalarProperty Name="THEATERID" ColumnName="THEATERID" />
+                <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+                <ScalarProperty Name="STARTTIME" ColumnName="STARTTIME" />
+                <ScalarProperty Name="ENDTIME" ColumnName="ENDTIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THEATERs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.THEATER">
+              <MappingFragment StoreEntitySet="THEATER">
+                <ScalarProperty Name="THEATERID" ColumnName="THEATERID" />
+                <ScalarProperty Name="THEATERNAME" ColumnName="THEATERNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TICKETs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.TICKET">
+              <MappingFragment StoreEntitySet="TICKET">
+                <ScalarProperty Name="TICKETID" ColumnName="TICKETID" />
+                <ScalarProperty Name="PAYMENTID" ColumnName="PAYMENTID" />
+                <ScalarProperty Name="CUSTOMERID" ColumnName="CUSTOMERID" />
+                <ScalarProperty Name="SHOWTIMEID" ColumnName="SHOWTIMEID" />
+                <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+                <ScalarProperty Name="TOTALTICKETS" ColumnName="TOTALTICKETS" />
+                <ScalarProperty Name="TOTALAMOUT" ColumnName="TOTALAMOUT" />
+                <ScalarProperty Name="TICKETSTATUS" ColumnName="TICKETSTATUS" />
+                <ScalarProperty Name="SELLDATE" ColumnName="SELLDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TICKETDETAILs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.TICKETDETAIL">
+              <MappingFragment StoreEntitySet="TICKETDETAIL">
+                <ScalarProperty Name="TICKETDETAILID" ColumnName="TICKETDETAILID" />
+                <ScalarProperty Name="TICKETID" ColumnName="TICKETID" />
+                <ScalarProperty Name="TICKETPRICEID" ColumnName="TICKETPRICEID" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="TOTALPRICE" ColumnName="TOTALPRICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TICKETPRICEs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.TICKETPRICE">
+              <MappingFragment StoreEntitySet="TICKETPRICE">
+                <ScalarProperty Name="TICKETPRICEID" ColumnName="TICKETPRICEID" />
+                <ScalarProperty Name="TICKETTYPEID" ColumnName="TICKETTYPEID" />
+                <ScalarProperty Name="DAYCATID" ColumnName="DAYCATID" />
+                <ScalarProperty Name="PRICETTICKET" ColumnName="PRICETTICKET" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TICKETSEATs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.TICKETSEAT">
+              <MappingFragment StoreEntitySet="TICKETSEAT">
+                <ScalarProperty Name="TICKETSEATID" ColumnName="TICKETSEATID" />
+                <ScalarProperty Name="TICKETDETAILID" ColumnName="TICKETDETAILID" />
+                <ScalarProperty Name="SEATID" ColumnName="SEATID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TICKETTYPEs">
+            <EntityTypeMapping TypeName="GalaxyCinemaModel.TICKETTYPE">
+              <MappingFragment StoreEntitySet="TICKETTYPE">
+                <ScalarProperty Name="TICKETTYPEID" ColumnName="TICKETTYPEID" />
+                <ScalarProperty Name="TICKETTYPENAME" ColumnName="TICKETTYPENAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="HASACTOR" TypeName="GalaxyCinemaModel.HASACTOR" StoreEntitySet="HASACTOR">
+            <EndProperty Name="ACTOR">
+              <ScalarProperty Name="ACTORID" ColumnName="ACTORID" />
+            </EndProperty>
+            <EndProperty Name="MOVIE">
+              <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="HASGENRE" TypeName="GalaxyCinemaModel.HASGENRE" StoreEntitySet="HASGENRE">
+            <EndProperty Name="MOVIE">
+              <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+            </EndProperty>
+            <EndProperty Name="GENRE">
+              <ScalarProperty Name="GENREID" ColumnName="GENREID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
