@@ -1,0 +1,106 @@
+﻿@model GalaxyCinema.Models.MOVIE
+
+@{
+    ViewBag.Title = "Chi Tiết Phim";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    var ageSelect = ViewBag.AgeRatings as SelectList;
+    var fieldName = ageSelect?.DataTextField;
+    object ageValue = null;
+    if (fieldName != null && Model.AGERATING != null)
+    {
+        var prop = Model.AGERATING.GetType().GetProperty(fieldName);
+        if (prop != null)
+        {
+            ageValue = prop.GetValue(Model.AGERATING, null);
+        }
+    }
+}
+
+<div class="container mt-4">
+    <h1>@Model.MOVIENAME</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            @if (!string.IsNullOrEmpty(Model.POSTER))
+            {
+                <img src="@Url.Content(Model.POSTER)"
+                     alt="Poster @Model.MOVIENAME"
+                     class="img-fluid mb-4 rounded"
+                     style="max-width: 60%; height: auto;" />
+            }
+        </div>
+        <div class="col-md-8">
+            <dl class="row">
+                <dt class="col-sm-4">Đạo diễn</dt>
+                <dd class="col-sm-8">@(!string.IsNullOrEmpty(Model.DIRECTOR?.DIRECTORNAME) ? Model.DIRECTOR.DIRECTORNAME : "Không có")</dd>
+
+                <dt class="col-sm-4">Thể loại</dt>
+                <dd class="col-sm-8">
+                    @(Model.GENREs.Any()
+                        ? string.Join(", ", Model.GENREs.Select(g => g.GENRENAME)) : "Không có")
+                </dd>
+
+                <dt class="col-sm-4">Diễn viên</dt>
+                <dd class="col-sm-8">
+                    @(Model.ACTORs.Any()
+                        ? string.Join(", ", Model.ACTORs.Select(a => a.ACTORNAME)) : "Không có")
+                </dd>
+
+                <dt class="col-sm-4">Quốc gia</dt>
+                <dd class="col-sm-8">@(!string.IsNullOrEmpty(Model.NATION?.NATIONNAME) ? Model.NATION.NATIONNAME : "Không có")</dd>
+
+                <dt class="col-sm-4">Ngày phát hành</dt>
+                <dd class="col-sm-8">@Model.RELEASEDATE.ToString("dd/MM/yyyy")</dd>
+
+                <dt class="col-sm-4">Xếp hạng độ tuổi</dt>
+                <dd class="col-sm-8">@(ageValue ?? "N/A")</dd>
+
+                @if (!string.IsNullOrWhiteSpace(Model.MOVIESTATUS))
+                {
+                    <dt class="col-sm-4">Trạng thái</dt>
+                    <dd class="col-sm-8">@Model.MOVIESTATUS</dd>
+                }
+
+                <dt class="col-sm-4">Mô tả</dt>
+                <dd class="col-sm-8">@Model.DESCRIPTION</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<a href="@Url.Action("Index", "Movies")" class="btn btn-outline-secondary mt-4 btn-lg rounded-pill">
+    ← Quay lại
+</a>
+
+@*<h4 class="mt-5">Đánh giá từ người xem</h4>*@
+
+@*<div class="mb-4">
+        @foreach (var review in Model.REVIEWs.OrderByDescending(r => r.REVIEWDATE))
+        {
+            <div class="mb-3">
+                <div class="fw-bold">
+                    @(review.CUSTOMER != null ? review.CUSTOMER.LASTNAME : "Ẩn danh")
+                </div>
+                <div class="text-muted" style="font-size: 0.9rem;">
+                    @review.REVIEWDATE.ToString("dd/MM/yyyy")
+                </div>
+                <div class="text-warning mb-1">
+                    @for (int i = 0; i < review.VOTE; i++)
+                    {
+                        <i class="fas fa-star"></i>
+                    }
+                    @for (int i = review.VOTE; i < 5; i++)
+                    {
+                        <i class="far fa-star"></i>
+                    }
+                    <span class="text-dark"> @review.VOTE / 5</span>
+                </div>
+                <div>@review.COMMENT</div>
+            </div>
+        }
+        <a href="@Url.Action("Index", "Movies")" class="btn btn-outline-secondary mt-4 btn-lg rounded-pill">
+            ← Quay lại
+        </a>
+    </div>*@
+
+

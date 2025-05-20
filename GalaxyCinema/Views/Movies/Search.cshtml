@@ -1,0 +1,100 @@
+﻿@model IEnumerable<GalaxyCinema.Models.MOVIE>
+@{
+    ViewBag.Title = "Tra cứu phim";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Điền thông tin phim cần tìm</h2>
+<div class="panel panel-default">
+    <div class="panel-body">
+        @if (ViewBag.SearchError != null)
+        {
+            <p class="text-danger">
+                <em><strong>@ViewBag.SearchError</strong></em>
+            </p>
+        }
+        @using (Html.BeginForm("Search", "Movies", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">Tên phim:</label>
+                <div class="col-md-4">
+                    <input type="text" name="movieName" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Thể loại:</label>
+                <div class="col-md-4">
+                    @Html.DropDownList("genreId", new SelectList(ViewBag.Genres ?? new List<SelectListItem>(), "Value", "Text"), "-- Chọn thể loại phim --", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Đạo diễn:</label>
+                <div class="col-md-4">
+                    <input type="text" name="directorName" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Trạng thái:</label>
+                <div class="col-md-4">
+                    <select name="status" class="form-control">
+                        <option value="">-- Chọn trạng thái --</option>
+                        <option value="Đang chiếu">Đang chiếu</option>
+                        <option value="Sắp chiếu">Sắp chiếu</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<h3>Kết quả tìm kiếm:</h3>
+@if (Model != null && Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Mã phim</th>
+                    <th>Tên phim</th>
+                    <th>Thể loại</th>
+                    <th>Trạng thái</th>
+                    <th>Thời lượng</th>
+                    <th>Đạo diễn</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MOVIEID</td>
+                        <td>@item.MOVIENAME</td>
+                        <td>
+                            @string.Join(", ", item.GENREs.Select(g => g.GENRENAME))
+                        </td>
+                        <td>@item.MOVIESTATUS</td>
+                        <td>@item.DURATION phút</td>
+                        <td>@(item.DIRECTOR != null ? item.DIRECTOR.DIRECTORNAME : "")</td>
+                        <td>
+                            <a href="@Url.Action("Details", new { id = item.MOVIEID })" class="btn btn-info btn-sm" title="Chi tiết">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else if (Model != null)
+{
+    <div class="text-danger">
+        <em>Không tìm thấy phim nào phù hợp với tiêu chí tìm kiếm.</em>
+    </div>
+}
+<a href="@Url.Action("Index", "Movies")" class="btn btn-outline-secondary mt-4 btn-lg rounded-pill">
+    ← Quay lại
+</a>

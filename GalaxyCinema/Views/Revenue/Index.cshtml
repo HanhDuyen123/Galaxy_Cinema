@@ -1,0 +1,335 @@
+﻿@model List<GalaxyCinema.Models.Revenue>
+
+@{
+    ViewBag.Title = "Thống kê doanh thu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">THỐNG KÊ DOANH THU</h1>
+        <a href="#" id="exportPDF" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-download fa-sm text-white-50"></i> Xuất báo cáo
+        </a>
+    </div>
+
+    <!-- Filter Card -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Bộ lọc thống kê</h6>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Index", "Revenue", FormMethod.Get, new { @class = "form-inline row" }))
+            {
+                <div class="form-group col-md-3 mb-2">
+                    <label for="startDate">Từ ngày</label>
+                    <div class="input-group w-100">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        </div>
+                        @Html.TextBox("startDate", Request["startDate"]?.ToString(), new { @class = "form-control", type = "date", placeholder = "Từ ngày" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3 mb-2">
+                    <label for="endDate">Đến ngày</label>
+                    <div class="input-group w-100">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        </div>
+                        @Html.TextBox("endDate", Request["endDate"]?.ToString(), new { @class = "form-control", type = "date", placeholder = "Đến ngày" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4 mb-2">
+                    <label for="movieId">Phim</label>
+                    <div class="input-group w-100">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-film"></i></span>
+                        </div>
+                        @Html.DropDownList("movieId", (SelectList)ViewBag.Movies, "Tất cả phim", new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2 mb-2">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-search"></i> Thống kê
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <!-- Summary Cards -->
+    <div class="row">
+        <!-- Tổng số vé -->
+        <div class="col-xl-6 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Tổng số vé đã bán
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.TotalTickets</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tổng doanh thu -->
+        <div class="col-xl-6 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Tổng doanh thu
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@String.Format("{0:N0}", ViewBag.TotalRevenue) VNĐ</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="row">
+        <!-- Line Chart - Doanh thu theo ngày -->
+        <div class="col-xl-8 col-lg-7">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Doanh thu theo ngày</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie Chart - Phân bổ doanh thu theo phim -->
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Phân bổ doanh thu theo phim</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="movieRevenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DataTables Card -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Chi tiết doanh thu</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="revenueTable" width="100%" cellspacing="0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>STT</th>
+                            <th>Ngày</th>
+                            <th>Tên phim</th>
+                            <th>Số vé</th>
+                            <th>Doanh thu (VNĐ)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td></td>
+                                <td>@(item.Date.HasValue ? item.Date.Value.ToString("dd/MM/yyyy") : "")</td>
+                                <td>@item.MovieName</td>
+                                <td class="text-center">@item.Tickets</td>
+                                <td class="text-right">@String.Format("{0:N0}", item.Amount)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Thêm Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <!-- Thêm DataTables -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Font Awesome (nếu chưa có) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <!-- Định nghĩa CSS cho DataTables -->
+    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+    <script>
+        $(document).ready(function () {
+            // Khởi tạo DataTable
+            $('#revenueTable').DataTable({
+                columnDefs: [{
+                    targets: 0,
+                    searchable: false,
+                    orderable: false
+                }],
+                order: [[1, 'desc']],
+                drawCallback: function (settings) {
+                    var api = this.api();
+                    api.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                    });
+                },
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/vi.json'
+                },
+                order: [[0, 'desc']], // Sắp xếp theo ngày mới nhất
+                pageLength: 10,
+                info: false
+            });
+
+            // Chuẩn bị dữ liệu cho biểu đồ
+            const revenueData = @Html.Raw(Json.Encode(Model
+                .GroupBy(x => x.Date)
+                .Select(g => new {
+                    date = g.Key.HasValue ? g.Key.Value.ToString("dd/MM/yyyy") : "",
+                    revenue = g.Sum(x => x.Amount)
+                })
+                .OrderBy(x => x.date)
+                .ToList()));
+
+            const movieData = @Html.Raw(Json.Encode(Model
+                .GroupBy(x => x.MovieName)
+                .Select(g => new {
+                    movie = g.Key,
+                    revenue = g.Sum(x => x.Amount)
+                })
+                .OrderByDescending(x => x.revenue)
+                .Take(5)
+                .ToList()));
+
+            // Tạo biểu đồ doanh thu theo ngày
+            if (revenueData.length > 0) {
+                const ctx = document.getElementById('revenueChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: revenueData.map(x => x.date),
+                        datasets: [{
+                            label: 'Doanh thu (VNĐ)',
+                            data: revenueData.map(x => x.revenue),
+                            backgroundColor: 'rgba(78, 115, 223, 0.05)',
+                            borderColor: 'rgba(78, 115, 223, 1)',
+                            pointRadius: 3,
+                            pointBackgroundColor: 'rgba(78, 115, 223, 1)',
+                            pointBorderColor: 'rgba(78, 115, 223, 1)',
+                            pointHoverRadius: 5,
+                            pointHoverBackgroundColor: 'rgba(78, 115, 223, 1)',
+                            pointHoverBorderColor: 'rgba(78, 115, 223, 1)',
+                            pointHitRadius: 10,
+                            pointBorderWidth: 2,
+                            tension: 0.3,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        layout: {
+                            padding: {
+                                left: 10,
+                                right: 25,
+                                top: 25,
+                                bottom: 0
+                            }
+                        },
+                        scales: {
+                            y: {
+                                ticks: {
+                                    callback: function(value) {
+                                        return new Intl.NumberFormat('vi-VN').format(value) + ' đ';
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return 'Doanh thu: ' + new Intl.NumberFormat('vi-VN').format(context.raw) + ' đ';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Tạo biểu đồ phân bổ doanh thu theo phim
+            if (movieData.length > 0) {
+                const pieCtx = document.getElementById('movieRevenueChart').getContext('2d');
+                new Chart(pieCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: movieData.map(x => x.movie),
+                        datasets: [{
+                            data: movieData.map(x => x.revenue),
+                            backgroundColor: [
+                                '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b'
+                            ],
+                            hoverBackgroundColor: [
+                                '#2e59d9', '#17a673', '#2c9faf', '#dda20a', '#be2617'
+                            ],
+                            hoverBorderColor: "rgba(234, 236, 244, 1)",
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const label = context.label || '';
+                                        const value = context.raw;
+                                        const formattedValue = new Intl.NumberFormat('vi-VN').format(value);
+                                        return label + ': ' + formattedValue + ' đ';
+                                    }
+                                }
+                            },
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    boxWidth: 12
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Xử lý nút xuất báo cáo
+            $('#exportPDF').click(function(e) {
+                e.preventDefault();
+                alert('Chức năng xuất báo cáo đang được phát triển');
+            });
+        });
+    </script>
+}

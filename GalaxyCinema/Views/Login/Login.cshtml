@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Galaxy Cinema - Đăng nhập</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            width: 350px;
+            padding: 40px 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+            .login-container img {
+                width: 160px;
+                margin-bottom: 30px;
+            }
+
+            .login-container input[type="text"],
+            .login-container input[type="password"] {
+                width: 100%;
+                padding: 12px 15px;
+                margin: 10px 0;
+                border: 1px solid #aaa;
+                border-radius: 6px;
+                font-size: 14px;
+                box-sizing: border-box;
+            }
+
+            .login-container .input-group {
+                position: relative;
+            }
+
+            .login-container .toggle-password {
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
+
+        .forgot {
+            display: block;
+            text-align: right;
+            font-size: 13px;
+            color: #007bff;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            font-size: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 13px;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://www.galaxycine.vn/_next/static/media/galaxy-logo-mobile.074abeac.png" alt="Galaxy Cinema Logo" />
+
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <input type="text" name="email" placeholder="Email" />
+
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Mật khẩu" id="password" />
+                <span class="toggle-password" onclick="togglePassword()"></span>
+            </div>
+
+            <a href="#" class="forgot">Quên mật khẩu?</a>
+
+            <input type="submit" value="Đăng nhập" />
+
+            if (ViewBag.Error != null)
+            {
+                <div class="error-message">@ViewBag.Error</div>
+            }
+        }
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            passwordField.type = passwordField.type === "password" ? "text" : "password";
+        }
+    </script>
+</body>
+</html>
+

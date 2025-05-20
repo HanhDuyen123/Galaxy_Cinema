@@ -1,0 +1,123 @@
+﻿@model IEnumerable<GalaxyCinema.Models.MOVIE>
+
+@{
+    ViewBag.Title = "Danh sách phim";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .movie-card {
+            transition: transform .3s;
+        }
+
+            .movie-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .badge-age {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: .8rem;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>@ViewBag.Title</h2>
+            <a href="@Url.Action("Create", "Movie")" class="btn btn-primary">Thêm phim mới</a>
+        </div>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info">Chưa có phim nào được thêm.</div>
+        }
+        else
+        {
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                @foreach (var movie in Model)
+                {
+                    var ageSelect = (SelectList)ViewBag.AgeRatings;
+                    var fieldName = ageSelect?.DataTextField;
+                    object ageValue = null;
+                    if (movie.AGERATING != null && fieldName != null)
+                    {
+                        var prop = movie.AGERATING.GetType().GetProperty(fieldName);
+                        if (prop != null)
+                        {
+                            ageValue = prop.GetValue(movie.AGERATING, null);
+                        }
+                    }
+
+                    <div class="col">
+                        <div class="card h-100 shadow-sm movie-card">
+                            <div class="position-relative">
+                                @if (!string.IsNullOrEmpty(movie.POSTER))
+                                {
+                                    <img src="@movie.POSTER" class="card-img-top" alt="Poster @movie.MOVIENAME" style="height:300px; object-fit:cover;" />
+                                }
+                                else
+                                {
+                                    <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height:300px;">
+                                        <span>Chưa có poster</span>
+                                    </div>
+                                }
+
+                                @if (ageValue != null)
+                                {
+                                    <span class="badge bg-danger badge-age">@ageValue</span>
+                                }
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">@movie.MOVIENAME</h5>
+                                <p><strong>Thể loại:</strong> @(movie.GENREs.Any() ? string.Join(", ", movie.GENREs.Select(g => g.GENRENAME)) : "Không có")</p>
+                                <p><strong>Đạo diễn:</strong> @(movie.DIRECTOR?.DIRECTORNAME ?? "Không có")</p>
+                                <p><strong>Diễn viên:</strong> @(movie.ACTORs.Any() ? string.Join(", ", movie.ACTORs.Select(a => a.ACTORNAME).Take(3)) : "Không có") @(movie.ACTORs.Count() > 3 ? "..." : "")</p>
+                                <p><strong>Quốc gia:</strong> @(movie.NATION?.NATIONNAME ?? "Không có")</p>
+                                <p><strong>Ngày phát hành:</strong> @movie.RELEASEDATE.ToString("dd/MM/yyyy")</p>
+                                @if (!string.IsNullOrEmpty(movie.MOVIESTATUS))
+                                {
+                                    <p><strong>Trạng thái:</strong> @movie.MOVIESTATUS</p>
+                                }
+
+                                <a href="@Url.Action("HomeMovie", "Movie", new { id = movie.MOVIEID })" class="btn btn-outline-primary mt-2">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var alertEl = document.querySelector('.alert-success');
+            if (alertEl) {
+                setTimeout(function () {
+                    var btn = alertEl.querySelector('.btn-close');
+                    if (btn) btn.click();
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
+
+

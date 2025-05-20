@@ -1,0 +1,205 @@
+﻿@model GalaxyCinema.Models.MOVIE
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid px-4">
+    <h2 class="my-4">@ViewBag.Title</h2>
+
+    <style>
+        .form-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #7c3aed;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #111;
+        }
+
+        .field-validation-error {
+            color: #e11d48;
+            font-size: 0.8rem;
+        }
+
+        .form-control, .form-select {
+            font-size: 0.9rem;
+            padding: 6px 10px;
+            height: auto;
+        }
+
+            .form-select[size] {
+                height: auto;
+            }
+
+        .btn-primary {
+            background-color: #7c3aed;
+            border: none;
+        }
+
+        .btn-secondary {
+            border: none;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e9ecef;
+            padding: 3px 8px;
+            margin: 3px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        .tag-container {
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background-color: #fff;
+            min-height: 100px;
+        }
+    </style>
+
+    <div class="form-container">
+        <h2 class="text-center">Thêm Phim Mới</h2>
+
+        @if (ViewData.ModelState.Any(ms => ms.Value.Errors.Any()))
+        {
+            <div class="alert alert-danger p-2 mb-3">
+                <ul class="mb-0 small">
+                    @foreach (var state in ViewData.ModelState.Values)
+                    {
+                        foreach (var err in state.Errors)
+                        {
+                            <li>@err.ErrorMessage</li>
+                        }
+                    }
+                </ul>
+            </div>
+        }
+
+        @using (Html.BeginForm("Create", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.MOVIENAME, "Tên phim", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.MOVIENAME, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.MOVIENAME, "", new { @class = "field-validation-error" })
+
+                    <div class="mt-3">
+                        <label class="form-label">Thể loại</label>
+                        <input type="text" id="genreInput" class="form-control" placeholder="Nhập thể loại và nhấn Enter" />
+                        <div class="tag-container mt-2" id="genreContainer"></div>
+                        <div id="genreInputs"></div>
+                    </div>
+
+                    @Html.LabelFor(m => m.NATIONID, "Quốc gia", new { @class = "form-label mt-3" })
+                    @Html.DropDownListFor(m => m.NATIONID, (SelectList)ViewBag.Countries, "Chọn Quốc Gia", new { @class = "form-control" })
+
+                    @Html.LabelFor(m => m.MOVIESTATUS, "Trạng thái", new { @class = "form-label mt-3" })
+                    @Html.TextBoxFor(m => m.MOVIESTATUS, new { @class = "form-control" })
+
+                    @Html.LabelFor(m => m.RELEASEDATE, "Ngày phát hành", new { @class = "form-label mt-3" })
+                    @Html.TextBoxFor(m => m.RELEASEDATE, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+
+                    @Html.LabelFor(m => m.DURATION, "Thời lượng (phút)", new { @class = "form-label mt-3" })
+                    @Html.TextBoxFor(m => m.DURATION, new { @class = "form-control", type = "number", min = "1" })
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mt-0">
+                        <label class="form-label">Đạo diễn</label>
+                        <input type="text" id="directorInput" class="form-control" placeholder="Nhập tên đạo diễn và nhấn Enter" />
+                        <div class="tag-container mt-2" id="directorContainer"></div>
+                        <div id="directorInputs"></div>
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label">Diễn viên</label>
+                        <input type="text" id="actorInput" class="form-control" placeholder="Nhập tên diễn viên và nhấn Enter" />
+                        <div class="tag-container mt-2" id="actorContainer"></div>
+                        <div id="actorInputs"></div>
+                    </div>
+
+                    @Html.LabelFor(m => m.AGEID, "Xếp hạng độ tuổi", new { @class = "form-label mt-3" })
+                    @Html.DropDownListFor(m => m.AGEID, (SelectList)ViewBag.AgeRatings, "Chọn xếp hạng", new { @class = "form-control" })
+
+                    @Html.Label("Ảnh Phim", new { @class = "form-label mt-3" })
+                    <input type="file" name="uploadImage" class="form-control" accept="image/*" />
+
+                    @Html.LabelFor(m => m.DESCRIPTION, "Mô tả", new { @class = "form-label mt-3" })
+                    @Html.TextAreaFor(m => m.DESCRIPTION, new { @class = "form-control", rows = 3 })
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary me-2">Thêm Phim</button>
+                <a href="@Url.Action("Index", "Movies")" class="btn btn-secondary">Quay lại</a>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function setupTagInput(inputId, containerId, hiddenContainerId, inputName) {
+                const input = document.getElementById(inputId);
+                const container = document.getElementById(containerId);
+                const hiddenContainer = document.getElementById(hiddenContainerId);
+                let counter = 0;
+
+                input.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const value = input.value.trim();
+                        if (value) {
+                            const tag = document.createElement('span');
+                            tag.className = 'tag';
+                            tag.textContent = value;
+
+                            const removeBtn = document.createElement('button');
+                            removeBtn.innerHTML = '&times;';
+                            removeBtn.className = 'btn btn-sm p-0 ms-1';
+                            removeBtn.style.fontSize = '0.8rem';
+                            removeBtn.onclick = function () {
+                                tag.remove();
+                                document.getElementById(inputName + '_' + counter).remove();
+                            };
+                            tag.appendChild(removeBtn);
+
+                            container.appendChild(tag);
+
+                            const hiddenInput = document.createElement('input');
+                            hiddenInput.type = 'hidden';
+                            hiddenInput.name = inputName + '[]';
+                            hiddenInput.id = inputName + '_' + counter;
+                            hiddenInput.value = value;
+                            hiddenContainer.appendChild(hiddenInput);
+
+                            input.value = '';
+                            counter++;
+                        }
+                    }
+                });
+            }
+
+            setupTagInput('genreInput', 'genreContainer', 'genreInputs', 'genreNames');
+            setupTagInput('directorInput', 'directorContainer', 'directorInputs', 'directorNames');
+            setupTagInput('actorInput', 'actorContainer', 'actorInputs', 'actorNames');
+        });
+    </script>
+}

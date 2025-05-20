@@ -1,0 +1,74 @@
+﻿@model GalaxyCinema.Models.MOVIE
+
+@{
+    ViewBag.Title = "Chi Tiết Phim";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    var ageSelect = ViewBag.AgeRatings as SelectList;
+    var fieldName = ageSelect?.DataTextField;
+    object ageValue = null;
+    if (fieldName != null && Model.AGERATING != null)
+    {
+        var prop = Model.AGERATING.GetType().GetProperty(fieldName);
+        if (prop != null)
+        {
+            ageValue = prop.GetValue(Model.AGERATING, null);
+        }
+    }
+}
+
+<h2 class="mb-4 fw-bold text-primary">@Model.MOVIENAME</h2>
+
+@if (!string.IsNullOrEmpty(Model.POSTER))
+{
+    <img src="@Url.Content(Model.POSTER)"
+         alt="Poster @Model.MOVIENAME"
+         class="mb-4 rounded shadow-sm"
+         style="max-width: 100%; height: auto; max-height: 400px; object-fit: cover;" />
+}
+
+<div style="max-width: 100%; overflow-x: auto;">
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th style="width: 200px;">Đạo diễn</th>
+                <td>@Model.DIRECTOR?.DIRECTORNAME</td>
+            </tr>
+            <tr>
+                <th>Thể loại</th>
+                <td>@(Model.GENREs.Any() ? string.Join(", ", Model.GENREs.Select(g => g.GENRENAME)) : "Không có")</td>
+            </tr>
+            <tr>
+                <th>Diễn viên</th>
+                <td>@(Model.ACTORs.Any() ? string.Join(", ", Model.ACTORs.Select(a => a.ACTORNAME)) : "Không có")</td>
+            </tr>
+            <tr>
+                <th>Quốc gia</th>
+                <td>@Model.NATION?.NATIONNAME</td>
+            </tr>
+            <tr>
+                <th>Ngày phát hành</th>
+                <td>@Model.RELEASEDATE.ToString("dd/MM/yyyy")</td>
+            </tr>
+            <tr>
+                <th>Xếp hạng độ tuổi</th>
+                <td>@(ageValue ?? "N/A")</td>
+            </tr>
+            @if (!string.IsNullOrWhiteSpace(Model.MOVIESTATUS))
+            {
+                <tr>
+                    <th>Trạng thái</th>
+                    <td>@Model.MOVIESTATUS</td>
+                </tr>
+            }
+            <tr>
+                <th>Mô tả</th>
+                <td>@Model.DESCRIPTION</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<a href="@Url.Action("Index", "Movie")" class="btn btn-secondary">
+    ← Quay về danh sách
+</a>

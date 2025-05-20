@@ -129,8 +129,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attribute\CustomAuthorizeAttribute.cs" />
     <Compile Include="Controllers\ACTORsController.cs" />
+    <Compile Include="Controllers\DIRECTORsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\RevenueController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,6 +187,7 @@
     <Compile Include="Models\PAYMENT.cs">
       <DependentUpon>GalaxyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Revenue.cs" />
     <Compile Include="Models\REVIEW.cs">
       <DependentUpon>GalaxyModel.tt</DependentUpon>
     </Compile>
@@ -228,6 +234,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\StyleLayout.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -284,6 +291,21 @@
     <Content Include="Views\ACTORs\Details.cshtml" />
     <Content Include="Views\ACTORs\Edit.cshtml" />
     <Content Include="Views\ACTORs\Index.cshtml" />
+    <Content Include="Views\Revenue\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\movie\Index.cshtml" />
+    <Content Include="Views\movie\Create.cshtml" />
+    <Content Include="Views\movie\HomeMovie.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Search.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Movies\Create.cshtml" />
+    <Content Include="Views\DIRECTORs\Create.cshtml" />
+    <Content Include="Views\DIRECTORs\Delete.cshtml" />
+    <Content Include="Views\DIRECTORs\Details.cshtml" />
+    <Content Include="Views\DIRECTORs\Edit.cshtml" />
+    <Content Include="Views\DIRECTORs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

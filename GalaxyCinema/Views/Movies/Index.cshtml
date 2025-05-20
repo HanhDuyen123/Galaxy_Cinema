@@ -1,0 +1,79 @@
+﻿@model IEnumerable<GalaxyCinema.Models.MOVIE>
+
+@{
+    ViewBag.Title = "Danh sách phim";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>@ViewBag.Title</h2>
+    <div class="d-flex gap-2">
+        <a href="@Url.Action("Search", "Movies")" class="btn btn-primary">
+            <i class="fa fa-search"></i> Tìm phim
+        </a>
+        <a href="@Url.Action("Create", "Movies")" class="btn btn-success">
+            <i class="fa fa-plus"></i> Thêm phim
+        </a>
+    </div>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Không có phim nào để hiển thị.</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle text-center">
+            <thead class="table-light">
+                <tr>
+                    <th>Mã phim</th>
+                    <th>Phim</th>
+                    <th>Danh mục</th>
+                    <th>Trạng thái</th>
+                    <th>Thời lượng</th>
+                    <th>Ngày chiếu</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movie in Model)
+                {
+                    <tr>
+                        <td>@movie.MOVIEID</td>
+
+                        <td class="text-start">
+                            <div class="d-flex align-items-center">
+                                <img src="@movie.POSTER" alt="Poster" style="height: 60px; width: 40px; object-fit: cover; margin-right: 10px;" />
+                                <span>@movie.MOVIENAME</span>
+                            </div>
+                        </td>
+                        <td>
+                            @string.Join(", ", movie.GENREs.Select(g => g.GENRENAME))
+                        </td>
+                        <td>
+                            <span class="badge bg-success">
+                                @(string.IsNullOrEmpty(movie.MOVIESTATUS) ? "Không rõ" : movie.MOVIESTATUS)
+                            </span>
+                        </td>
+                        <td>@movie.DURATION phút</td>
+                        <td>@movie.RELEASEDATE.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <a href="@Url.Action("Details", new { id = movie.MOVIEID })" class="btn btn-info btn-sm" title="Chi tiết">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
