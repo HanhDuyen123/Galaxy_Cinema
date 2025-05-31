@@ -139,6 +139,7 @@ C:\Users\duyentth\Study\CNPM\GalaxyCinema\GalaxyCinema\bin\EntityFramework.SqlSe
 C:\Users\duyentth\Study\CNPM\GalaxyCinema\GalaxyCinema\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\duyentth\Study\CNPM\GalaxyCinema\GalaxyCinema\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\duyentth\Study\CNPM\GalaxyCinema\GalaxyCinema\bin\Newtonsoft.Json.dll
+C:\Users\duyentth\Study\CNPM\GalaxyCinema\GalaxyCinema\bin\Rotativa.dll
 C:\Users\duyentth\Study\CNPM\GalaxyCinema\GalaxyCinema\bin\System.Web.Helpers.dll
 C:\Users\duyentth\Study\CNPM\GalaxyCinema\GalaxyCinema\bin\System.Web.Mvc.dll
 C:\Users\duyentth\Study\CNPM\GalaxyCinema\GalaxyCinema\bin\System.Web.Optimization.dll

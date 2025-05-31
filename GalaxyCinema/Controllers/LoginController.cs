@@ -61,7 +61,7 @@ namespace GalaxyCinema.Controllers
                 Response.Cookies.Add(authCookie);
 
                 if (emp.ROLENAME == "Admin")
-                    return RedirectToAction("Index", "Revenue");
+                    return RedirectToAction("Index", "Admin");
                 else
                     return RedirectToAction("Index", "Employee");
             }

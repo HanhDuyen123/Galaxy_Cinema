@@ -1,0 +1,84 @@
+﻿@model IEnumerable<GalaxyCinema.Models.MovieShowtimesViewModel>
+
+
+@{
+    ViewBag.Title = "Lịch Chiếu Phim";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    // Lấy danh sách ngày từ ViewBag
+    var dateRange = ViewBag.DateRange as List<DateTime>;
+    var selectedDate = ViewBag.SelectedDate as DateTime?;
+
+    // Danh sách tên ngày trong tuần tiếng Việt
+    string[] dayNames = { "Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy" };
+}
+
+<div class="container">
+    <h4 class="fw-bold">Lịch Chiếu</h4>
+
+    <div class="date-slider justify-content-between w-100">
+
+        <div class="slider-container">
+            @foreach (var date in dateRange)
+            {
+                string activeClass = date.Date == selectedDate?.Date ? "active" : "";
+                string dayName = date.Date == DateTime.Today.Date ? "Hôm Nay" : dayNames[(int)date.DayOfWeek];
+
+                <div class="date-item @activeClass" data-date="@date.ToString("yyyy-MM-dd")">
+                    <div class="day ">@dayName</div>
+                    <div class="date ">@date.ToString("dd/MM")</div>
+                </div>
+            }
+        </div>
+
+
+    </div>
+
+
+    <div id="movie-list" class="movie-list">
+        @Html.Partial("PartialViews/_MovieShowtimes", Model)
+    </div>
+</div>
+<link href="~/Content/_StyleBooking.css" rel="stylesheet" />
+
+@section scripts {
+    <script>
+        $(document).ready(function() {
+            // Xử lý nút điều hướng của thanh trượt ngày
+            const sliderContainer = $('.slider-container');
+            const prevButton = $('.nav-button.prev');
+            const nextButton = $('.nav-button.next');
+            const dateItems = $('.date-item');
+
+
+            // Chức năng chuyển ngày
+            $(document).on('click', '.date-item', function() {
+                const selectedDate = $(this).data('date');
+                const nowIso = new Date().toISOString();
+
+                // Thêm class active cho ngày được chọn
+                $('.date-item').removeClass('active');
+                $(this).addClass('active');
+
+                // Hiển thị loading
+                $('#movie-list').html('<div class="loading">Đang tải dữ liệu...</div>');
+
+                // Gọi AJAX để lấy danh sách phim và suất chiếu theo ngày
+                $.ajax({
+                    url: '@Url.Action("GetShowtimesByDate", "Booking")',
+                    type: 'GET',
+                    data: { date: selectedDate, currentTime: nowIso },
+                    success: function(result) {
+                        $('#movie-list').html(result);
+                    },
+                    error: function () {
+
+                        $('#movie-list').html('<div class="loading">Đã xảy ra lỗi khi tải dữ liệu.</div>');
+                    }
+                });
+            });
+
+
+        });
+    </script>
+}

@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using GalaxyCinema.Attribute;
 using GalaxyCinema.Models;
 
 namespace GalaxyCinema.Controllers
 {
+    [CustomAuthorize("Admin", "Employee")]
     public class DIRECTORsController : Controller
     {
         private GalaxyCinemaEntities db = new GalaxyCinemaEntities();
@@ -34,6 +36,28 @@ namespace GalaxyCinema.Controllers
             }
             return View(dIRECTOR);
         }
+        [HttpPost]
+        public JsonResult AddDirector(string name)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    return Json(new { success = false, message = "Tên đạo diễn không được để trống." });
+                }
+
+                var director = new DIRECTOR { DIRECTORNAME = name };
+                db.DIRECTORs.Add(director);
+                db.SaveChanges();
+
+                return Json(new { success = true, id = director.DIRECTORID, name = director.DIRECTORNAME });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
 
         // GET: DIRECTORs/Create
         public ActionResult Create()

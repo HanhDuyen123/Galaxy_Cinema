@@ -3,14 +3,58 @@
 @{
     ViewBag.Title = "Danh sách phim";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int stt = 1;
+}
+
+<!-- jQuery + jQuery UI -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+
+<!-- Form tìm kiếm -->
+@using (Html.BeginForm("Index", "Movies", FormMethod.Get, new { @class = "form-horizontal mb-3" }))
+{
+    <div class="row">
+        <div class="mb-3 text-center">
+            <h4 class="mb-0">Tìm kiếm phim</h4>
+        </div>
+        <div class="col-md-3 mb-2">
+            <input type="text" name="movieName" value="@ViewBag.MovieName" class="form-control" placeholder="Tên phim" />
+        </div>
+        <div class="col-md-3 mb-2">
+            @Html.DropDownList("genreId", new SelectList(ViewBag.Genres ?? new List<SelectListItem>(), "Value", "Text", ViewBag.GenreId), "-- Thể loại --", new { @class = "form-control" })
+        </div>
+        <div class="col-md-3 mb-2">
+            <input type="text" name="directorName" value="@ViewBag.DirectorName" class="form-control" placeholder="Đạo diễn" />
+        </div>
+        <div class="col-md-3 mb-2">
+            <select name="status" class="form-control">
+                <option value="">-- Trạng thái --</option>
+                <option value="Sắp chiếu" @(ViewBag.Status == "Sắp chiếu" ? "selected" : "")>Sắp chiếu</option>
+                <option value="Đang chiếu" @(ViewBag.Status == "Đang chiếu" ? "selected" : "")>Đang chiếu</option>
+                <option value="Đã chiếu" @(ViewBag.Status == "Đã chiếu" ? "selected" : "")>Đã chiếu</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-2">
+        @*<div class="col-md-12 text-end">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Tìm </button>
+                <a href="@Url.Action("Index", "Movies")" class="btn btn-outline-secondary">Đặt lại</a>
+            </div>*@
+        <div class="mb-0 text-center">
+            <button type="submit" class="btn btn-primary me-2"><i class="fa fa-search"></i> Tìm</button>
+            <a href="@Url.Action("Index", "Movies")" class="btn btn-outline-secondary">Đặt lại</a>
+        </div>
+    </div>
 }
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>@ViewBag.Title</h2>
     <div class="d-flex gap-2">
-        <a href="@Url.Action("Search", "Movies")" class="btn btn-primary">
-            <i class="fa fa-search"></i> Tìm phim
-        </a>
+        @*<a href="@Url.Action("Search", "Movies")" class="btn btn-primary">
+                <i class="fa fa-search"></i> Tìm phim
+            </a>*@
         <a href="@Url.Action("Create", "Movies")" class="btn btn-success">
             <i class="fa fa-plus"></i> Thêm phim
         </a>
@@ -35,8 +79,8 @@ else
         <table class="table table-bordered align-middle text-center">
             <thead class="table-light">
                 <tr>
-                    <th>Mã phim</th>
-                    <th>Phim</th>
+                    <th>STT</th>
+                    <th>Tên phim</th>
                     <th>Danh mục</th>
                     <th>Trạng thái</th>
                     <th>Thời lượng</th>
@@ -48,11 +92,12 @@ else
                 @foreach (var movie in Model)
                 {
                     <tr>
-                        <td>@movie.MOVIEID</td>
+                        <td>@stt</td>
+                        @{ stt++; }
 
                         <td class="text-start">
                             <div class="d-flex align-items-center">
-                                <img src="@movie.POSTER" alt="Poster" style="height: 60px; width: 40px; object-fit: cover; margin-right: 10px;" />
+                                <img src="@Url.Content("/Content/Img/" + movie.POSTER)" alt="Poster" style="height: 60px; width: 40px; object-fit: cover; margin-right: 10px;" />
                                 <span>@movie.MOVIENAME</span>
                             </div>
                         </td>
@@ -60,9 +105,27 @@ else
                             @string.Join(", ", movie.GENREs.Select(g => g.GENRENAME))
                         </td>
                         <td>
-                            <span class="badge bg-success">
-                                @(string.IsNullOrEmpty(movie.MOVIESTATUS) ? "Không rõ" : movie.MOVIESTATUS)
-                            </span>
+                            @{
+                                string statusText = "Không rõ";
+                                string badgeClass = "bg-secondary";
+
+                                switch (movie.MOVIESTATUS)
+                                {
+                                    case "Coming Soon":
+                                        statusText = "Sắp chiếu";
+                                        badgeClass = "bg-warning text-dark";
+                                        break;
+                                    case "Released":
+                                        statusText = "Đang chiếu";
+                                        badgeClass = "bg-success";
+                                        break;
+                                    case "Archived":
+                                        statusText = "Đã chiếu";
+                                        badgeClass = "bg-dark";
+                                        break;
+                                }
+                            }
+                            <span class="badge @badgeClass">@statusText</span>
                         </td>
                         <td>@movie.DURATION phút</td>
                         <td>@movie.RELEASEDATE.ToString("dd/MM/yyyy")</td>
@@ -70,6 +133,12 @@ else
                             <a href="@Url.Action("Details", new { id = movie.MOVIEID })" class="btn btn-info btn-sm" title="Chi tiết">
                                 <i class="fa-solid fa-circle-info"></i>
                             </a>
+                            @*<a href="@Url.Action("Edit", new { id = movie.MOVIEID })" class="btn btn-info btn-sm" title="Chỉnh sửa">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </a>
+                            <a href="@Url.Action("Delete", new { id = movie.MOVIEID })" class="btn btn-info btn-sm" title="Xoá">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </a>*@
                         </td>
                     </tr>
                 }
@@ -77,3 +146,35 @@ else
         </table>
     </div>
 }
+
+<script>
+    $(function () {
+        // Gợi ý Tên phim
+        $('input[name="movieName"]').autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetMovieSuggestions", "Movies")',
+                    data: { term: request.term },
+                    success: function (data) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 2
+        });
+
+        // Gợi ý Đạo diễn
+        $('input[name="directorName"]').autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetDirectorSuggestions", "Movies")',
+                    data: { term: request.term },
+                    success: function (data) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 2
+        });
+    });
+</script>

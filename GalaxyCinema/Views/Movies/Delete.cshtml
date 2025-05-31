@@ -1,0 +1,97 @@
+﻿@model GalaxyCinema.Models.MOVIE
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MOVIE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MOVIENAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOVIENAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DURATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DURATION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RELEASEDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RELEASEDATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MOVIESTATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOVIESTATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.POSTER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.POSTER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGERATING.AGERATING1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGERATING.AGERATING1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIRECTOR.DIRECTORNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIRECTOR.DIRECTORNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NATION.NATIONNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NATION.NATIONNAME)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

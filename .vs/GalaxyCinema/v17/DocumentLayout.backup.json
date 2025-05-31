@@ -3,166 +3,121 @@
   "WorkspaceRootPath": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\views\\revenue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\revenue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\controllers\\revenuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\controllers\\revenuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\controllers\\directorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\controllers\\directorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\movies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\movies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\movies\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\movies\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\movies\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\movies\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\models\\revenue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\models\\revenue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\movie\\homemovie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\movie\\homemovie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\views\\booking\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\booking\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\movie\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\movie\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\views\\booking\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\booking\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\movie\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\movie\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\content\\stylelayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\content\\stylelayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\attribute\\customauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\attribute\\customauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\schedule\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\schedule\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\models\\galaxymodel.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\models\\galaxymodel.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\scripts\\modal.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\scripts\\modal.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\models\\galaxymodel.edmx.diagram||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\models\\galaxymodel.edmx.diagram||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\models\\galaxymodel.context.tt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\models\\galaxymodel.context.tt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\schedule\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\schedule\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\models\\galaxymodel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\models\\galaxymodel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\views\\actors\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\actors\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\galaxycinema\\controllers\\actorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\controllers\\actorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|c:\\users\\duyentth\\study\\cnpm\\galaxycinema\\galaxycinema\\views\\revenue\\view.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{713C72FC-6914-4554-96FD-D30AF51EF2A0}|GalaxyCinema\\GalaxyCinema.csproj|solutionrelative:galaxycinema\\views\\revenue\\view.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "DockedHeight": 357,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Movies\\Details.cshtml",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Movies\\Details.cshtml",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Movies\\Details.cshtml",
-              "RelativeToolTip": "GalaxyCinema\\Views\\Movies\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T10:15:35.602Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Search.cshtml",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Movies\\Search.cshtml",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Movies\\Search.cshtml",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Movies\\Search.cshtml",
-              "RelativeToolTip": "GalaxyCinema\\Views\\Movies\\Search.cshtml",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAAAGMAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T10:15:06.037Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MoviesController.cs",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\MoviesController.cs",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Controllers\\MoviesController.cs",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\MoviesController.cs",
-              "RelativeToolTip": "GalaxyCinema\\Controllers\\MoviesController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwBgAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T10:13:47.659Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RevenueController.cs",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\RevenueController.cs",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Controllers\\RevenueController.cs",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\RevenueController.cs",
-              "RelativeToolTip": "GalaxyCinema\\Controllers\\RevenueController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAwA0AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T17:55:24.058Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Revenue\\Index.cshtml",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Revenue\\Index.cshtml",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Revenue\\Index.cshtml",
-              "RelativeToolTip": "GalaxyCinema\\Views\\Revenue\\Index.cshtml",
-              "ViewState": "AgIAALcAAAAAAAAAAAAAADwBAAAlAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "GalaxyCinema\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-10T18:04:44.637Z",
+              "WhenOpened": "2025-05-31T21:43:21.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "GalaxyCinema\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T21:43:11.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ScheduleController.cs",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\ScheduleController.cs",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Controllers\\ScheduleController.cs",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\ScheduleController.cs",
+              "RelativeToolTip": "GalaxyCinema\\Controllers\\ScheduleController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T21:37:00.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "GalaxyCinema\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAowD8AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T21:36:39.684Z",
               "EditorCaption": ""
             },
             {
@@ -173,214 +128,145 @@
               "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Shared\\_LayoutAdmin.cshtml",
               "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Shared\\_LayoutAdmin.cshtml",
               "RelativeToolTip": "GalaxyCinema\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAAAHwAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFgAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-11T20:26:35.876Z",
+              "WhenOpened": "2025-05-31T18:53:18.455Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Movies\\Create.cshtml",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Movies\\Create.cshtml",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Movies\\Create.cshtml",
-              "RelativeToolTip": "GalaxyCinema\\Views\\Movies\\Create.cshtml",
-              "ViewState": "AgIAAKgAAAAAAAAAAAAAAM0AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Booking\\Details.cshtml",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Booking\\Details.cshtml",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Booking\\Details.cshtml",
+              "RelativeToolTip": "GalaxyCinema\\Views\\Booking\\Details.cshtml",
+              "ViewState": "AgIAANYAAAAAAAAAAAAhwPQAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T10:16:05.546Z"
+              "WhenOpened": "2025-05-31T20:32:39.237Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DIRECTORsController.cs",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\DIRECTORsController.cs",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Controllers\\DIRECTORsController.cs",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\DIRECTORsController.cs",
-              "RelativeToolTip": "GalaxyCinema\\Controllers\\DIRECTORsController.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T10:24:20.207Z"
+              "DocumentIndex": 7,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Booking\\Create.cshtml",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Booking\\Create.cshtml",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Booking\\Create.cshtml",
+              "RelativeToolTip": "GalaxyCinema\\Views\\Booking\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-31T20:51:52.275Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "StyleLayout.css",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Content\\StyleLayout.css",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Content\\StyleLayout.css",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Content\\StyleLayout.css",
+              "RelativeToolTip": "GalaxyCinema\\Content\\StyleLayout.css",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAEEAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-31T20:47:24.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "modal.js",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Scripts\\modal.js",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Scripts\\modal.js",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Scripts\\modal.js",
+              "RelativeToolTip": "GalaxyCinema\\Scripts\\modal.js",
+              "ViewState": "AgIAAB0BAAAAAAAAAAAQwCsBAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-31T20:33:46.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Schedule\\Index.cshtml",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Schedule\\Index.cshtml",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Schedule\\Index.cshtml",
+              "RelativeToolTip": "GalaxyCinema\\Views\\Schedule\\Index.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-31T18:49:13.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Movies\\Index.cshtml",
               "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Movies\\Index.cshtml",
               "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Movies\\Index.cshtml",
               "RelativeToolTip": "GalaxyCinema\\Views\\Movies\\Index.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAGMAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T10:14:36.889Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Error.cshtml",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Shared\\Error.cshtml",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Shared\\Error.cshtml",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Shared\\Error.cshtml",
-              "RelativeToolTip": "GalaxyCinema\\Views\\Shared\\Error.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T09:57:49.906Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "GalaxyCinema\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAwD8AAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T14:31:18.054Z"
+              "WhenOpened": "2025-05-31T20:21:52.582Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\movie\\Index.cshtml",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\movie\\Index.cshtml",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\movie\\Index.cshtml",
-              "RelativeToolTip": "GalaxyCinema\\Views\\movie\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "View.cshtml",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Revenue\\View.cshtml",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Revenue\\View.cshtml",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Revenue\\View.cshtml",
+              "RelativeToolTip": "GalaxyCinema\\Views\\Revenue\\View.cshtml",
+              "ViewState": "AgIAAI0BAAAAAAAAAAAiwLABAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-11T15:15:32.643Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Revenue.cs",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\Revenue.cs",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Models\\Revenue.cs",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\Revenue.cs",
-              "RelativeToolTip": "GalaxyCinema\\Models\\Revenue.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T20:21:39.816Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\movie\\Create.cshtml",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\movie\\Create.cshtml",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\movie\\Create.cshtml",
-              "RelativeToolTip": "GalaxyCinema\\Views\\movie\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-11T15:16:25.689Z"
+              "WhenOpened": "2025-05-31T19:48:51.568Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "HomeMovie.cshtml",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\movie\\HomeMovie.cshtml",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\movie\\HomeMovie.cshtml",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\movie\\HomeMovie.cshtml",
-              "RelativeToolTip": "GalaxyCinema\\Views\\movie\\HomeMovie.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Schedule\\Create.cshtml",
+              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\Schedule\\Create.cshtml",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\Schedule\\Create.cshtml",
+              "RelativeToolTip": "GalaxyCinema\\Views\\Schedule\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-11T15:17:12.52Z"
-            },
+              "WhenOpened": "2025-05-31T18:49:25.408Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 43,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CustomAuthorizeAttribute.cs",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Attribute\\CustomAuthorizeAttribute.cs",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Attribute\\CustomAuthorizeAttribute.cs",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Attribute\\CustomAuthorizeAttribute.cs",
-              "RelativeToolTip": "GalaxyCinema\\Attribute\\CustomAuthorizeAttribute.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAZAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "GalaxyCinema\\App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "GalaxyCinema\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T14:38:52.699Z"
+              "WhenOpened": "2025-05-31T21:41:23.874Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "GalaxyModel.Context.cs",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\GalaxyModel.Context.cs",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Models\\GalaxyModel.Context.cs",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\GalaxyModel.Context.cs",
-              "RelativeToolTip": "GalaxyCinema\\Models\\GalaxyModel.Context.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAA6wDEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T18:00:21.837Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "GalaxyModel.edmx.diagram",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\GalaxyModel.edmx.diagram",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Models\\GalaxyModel.edmx.diagram",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\GalaxyModel.edmx.diagram",
-              "RelativeToolTip": "GalaxyCinema\\Models\\GalaxyModel.edmx.diagram",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-10T18:00:04.268Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "GalaxyModel.Context.tt",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\GalaxyModel.Context.tt",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Models\\GalaxyModel.Context.tt",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\GalaxyModel.Context.tt",
-              "RelativeToolTip": "GalaxyCinema\\Models\\GalaxyModel.Context.tt",
-              "ViewState": "AgIAAKoBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-10T17:58:50.1Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "GalaxyModel.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\GalaxyModel.Designer.cs",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Models\\GalaxyModel.Designer.cs",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\GalaxyModel.Designer.cs",
-              "RelativeToolTip": "GalaxyCinema\\Models\\GalaxyModel.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T17:58:47.472Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "MOVIE.cs",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\MOVIE.cs",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Models\\MOVIE.cs",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Models\\MOVIE.cs",
-              "RelativeToolTip": "GalaxyCinema\\Models\\MOVIE.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T17:58:21.413Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\ACTORs\\Index.cshtml",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Views\\ACTORs\\Index.cshtml",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Views\\ACTORs\\Index.cshtml",
-              "RelativeToolTip": "GalaxyCinema\\Views\\ACTORs\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-02T18:37:30.847Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ACTORsController.cs",
-              "DocumentMoniker": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\ACTORsController.cs",
-              "RelativeDocumentMoniker": "GalaxyCinema\\Controllers\\ACTORsController.cs",
-              "ToolTip": "C:\\Users\\duyentth\\Study\\CNPM\\GalaxyCinema\\GalaxyCinema\\Controllers\\ACTORsController.cs",
-              "RelativeToolTip": "GalaxyCinema\\Controllers\\ACTORsController.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T18:37:15.34Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

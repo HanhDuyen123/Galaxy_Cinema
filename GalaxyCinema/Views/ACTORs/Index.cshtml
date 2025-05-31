@@ -1,34 +1,58 @@
 ﻿@model IEnumerable<GalaxyCinema.Models.ACTOR>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Danh sách diễn viên";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int stt = 1;
 }
 
-<h2>Index</h2>
+<div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">@ViewBag.Title</h2>
+        <a href="@Url.Action("Create")" class="btn btn-success">
+            <i class="fa fa-plus"></i> Thêm diễn viên
+        </a>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ACTORNAME)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ACTORNAME)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ACTORID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ACTORID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ACTORID })
-        </td>
-    </tr>
-}
-
-</table>
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            Không có diễn viên nào để hiển thị.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light text-center">
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên diễn viên</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-center">@stt</td>
+                            <td>@item.ACTORNAME</td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Edit", new { id = item.ACTORID })" class="btn btn-warning btn-sm me-1" title="Chỉnh sửa">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Details", new { id = item.ACTORID })" class="btn btn-info btn-sm me-1" title="Chi tiết">
+                                    <i class="fa fa-info-circle"></i>
+                                </a>
+                                <a href="@Url.Action("Delete", new { id = item.ACTORID })" class="btn btn-danger btn-sm" title="Xoá" onclick="return confirm('Bạn có chắc muốn xoá diễn viên này không?');">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        stt++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

@@ -1,0 +1,314 @@
+﻿
+@{
+    ViewBag.Title = "RevenuePdf";
+    Layout = null;
+}
+
+@model List<GalaxyCinema.Models.Revenue>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Báo cáo thống kê doanh thu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #333;
+            background: white;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #333;
+        }
+
+        .logo {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .report-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+
+        .report-info {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 11px;
+        }
+
+        .date-range {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .report-date {
+            font-style: italic;
+            color: #666;
+        }
+
+        .summary-section {
+            margin-bottom: 25px;
+            background: #f8f9fc;
+            padding: 15px;
+            border: 1px solid #e3e6f0;
+        }
+
+        .summary-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: #4e73df;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .summary-label {
+            font-weight: bold;
+        }
+
+        .summary-value {
+            font-weight: bold;
+            color: #1cc88a;
+        }
+
+        .table-section {
+            margin-bottom: 20px;
+        }
+
+        .table-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: #4e73df;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4e73df;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        td {
+            font-size: 11px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .total-row {
+            background-color: #f8f9fc;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: right;
+            font-size: 11px;
+        }
+
+        .signature-section {
+            margin-top: 40px;
+            display: table;
+            width: 100%;
+        }
+
+        .signature-box {
+            display: table-cell;
+            text-align: center;
+            width: 50%;
+            vertical-align: top;
+        }
+
+        .signature-title {
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+
+/*        .signature-name {
+            border-top: 1px solid #333;
+            padding-top: 5px;
+            font-style: italic;
+        }*/
+
+
+        @@media print {
+            body {
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <img src="~/Content/Img/logo.png" alt="Galaxy Cinema Logo" class="logo-img" />
+        </div>
+        <div class="header-text">
+            <div class="company-name">Galaxy Nha Trang Center</div>
+            <small class="footer">
+                Địa chỉ: Tầng 3, Trung Tâm Thương Mại Nha Trang Center - 20 Trần Phú, Nha Trang, Khánh Hòa
+
+            </small>
+            <div class="report-title">Báo cáo thống kê doanh thu</div>
+        </div>
+    </div>
+
+    <!-- Report Info -->
+    <div class="report-info">
+        <div class="date-range">
+            @if (ViewBag.StartDate != null && ViewBag.EndDate != null)
+            {
+                if (((DateTime)ViewBag.StartDate).Date == ((DateTime)ViewBag.EndDate).Date)
+                {
+                    <text>Ngày: @(((DateTime)ViewBag.StartDate).ToString("dd/MM/yyyy"))</text>
+                }
+                else
+                {
+                    <text>Từ ngày: @(((DateTime)ViewBag.StartDate).ToString("dd/MM/yyyy")) đến ngày: @(((DateTime)ViewBag.EndDate).ToString("dd/MM/yyyy"))</text>
+                }
+            }
+            else if (ViewBag.StartDate != null)
+            {
+                <text>Từ ngày: @(((DateTime)ViewBag.StartDate).ToString("dd/MM/yyyy"))</text>
+            }
+            else if (ViewBag.EndDate != null)
+            {
+                <text>Đến ngày: @(((DateTime)ViewBag.EndDate).ToString("dd/MM/yyyy"))</text>
+            }
+            else
+            {
+                <text>Tất cả thời gian</text>
+            }
+        </div>
+        <div class="report-date">Báo cáo được tạo ngày: @ViewBag.ReportDate.ToString("dd/MM/yyyy HH:mm")</div>
+    </div>
+
+    <!-- Summary Section -->
+    <div class="summary-section">
+        <div class="summary-title">Tổng quan</div>
+        <div class="summary-row">
+            <span class="summary-label">Tổng số vé bán ra:</span>
+            <span class="summary-value">@String.Format("{0:N0}", ViewBag.TotalTickets) vé</span>
+        </div>
+        <div class="summary-row">
+            <span class="summary-label">Tổng doanh thu:</span>
+            <span class="summary-value">@String.Format("{0:N0}", ViewBag.TotalRevenue) VNĐ</span>
+        </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="table-section">
+        <div class="table-title">Chi tiết doanh thu</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%">STT</th>
+                    <th style="width: 15%">Ngày</th>
+                    <th style="width: 47%">Tên phim</th>
+                    <th style="width: 15%">Số vé</th>
+                    <th style="width: 15%">Doanh thu (VNĐ)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int stt = 1;
+                }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">@stt</td>
+                        <td class="text-center">@(item.Date.HasValue ? item.Date.Value.ToString("dd/MM/yyyy") : "")</td>
+                        <td>@item.MovieName</td>
+                        <td class="text-center">@String.Format("{0:N0}", item.Tickets)</td>
+                        <td class="text-right">@String.Format("{0:N0}", item.Amount)</td>
+                    </tr>
+                    stt++;
+                }
+                @if (Model.Count > 0)
+                {
+                    <tr class="total-row">
+                        <td colspan="3" class="text-center"><strong>TỔNG CỘNG</strong></td>
+                        <td class="text-center"><strong>@String.Format("{0:N0}", ViewBag.TotalTickets)</strong></td>
+                        <td class="text-right"><strong>@String.Format("{0:N0}", ViewBag.TotalRevenue)</strong></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    @*<div class="footer">
+        <div>Galaxy Cinema - Hệ thống quản lý rạp chiếu phim</div>
+        <div>Địa chỉ: [Địa chỉ rạp chiếu phim]</div>
+        <div>Điện thoại: [Số điện thoại] | Email: [Email liên hệ]</div>
+    </div>*@
+
+    <!-- Signature Section -->
+    <div class="signature-section">
+        <div class="signature-box">
+            <div class="signature-title">Người lập báo cáo</div>
+            <div class="signature-name"> </div>
+        </div>
+        <div class="signature-box">
+            <div class="signature-title">Quản lý</div>
+            <div class="signature-name"> </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

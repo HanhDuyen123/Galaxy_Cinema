@@ -1,34 +1,58 @@
 ﻿@model IEnumerable<GalaxyCinema.Models.DIRECTOR>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách đạo diễn";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int stt = 1;
 }
 
-<h2>Index</h2>
+<div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">@ViewBag.Title</h2>
+        <a href="@Url.Action("Create")" class="btn btn-success">
+            <i class="fa fa-plus"></i> Thêm đạo diễn
+        </a>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DIRECTORNAME)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DIRECTORNAME)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DIRECTORID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DIRECTORID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DIRECTORID })
-        </td>
-    </tr>
-}
-
-</table>
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            Không có đạo diễn nào để hiển thị.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light text-center">
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên đạo diễn</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-center">@stt</td>
+                            <td>@item.DIRECTORNAME</td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Edit", new { id = item.DIRECTORID })" class="btn btn-warning btn-sm me-1" title="Chỉnh sửa">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Details", new { id = item.DIRECTORID })" class="btn btn-info btn-sm me-1" title="Chi tiết">
+                                    <i class="fa fa-info-circle"></i>
+                                </a>
+                                <a href="@Url.Action("Delete", new { id = item.DIRECTORID })" class="btn btn-danger btn-sm" title="Xoá" onclick="return confirm('Bạn có chắc muốn xoá đạo diễn này không?');">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        stt++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

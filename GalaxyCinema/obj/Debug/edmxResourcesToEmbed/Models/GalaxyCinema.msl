@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GalaxyCinemaModelStoreContainer" CdmEntityContainer="GalaxyCinemaEntities">
+    <EntitySetMapping Name="ACTORs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.ACTOR">
+        <MappingFragment StoreEntitySet="ACTOR">
+          <ScalarProperty Name="ACTORID" ColumnName="ACTORID" />
+          <ScalarProperty Name="ACTORNAME" ColumnName="ACTORNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AGERATINGs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.AGERATING">
+        <MappingFragment StoreEntitySet="AGERATING">
+          <ScalarProperty Name="AGEID" ColumnName="AGEID" />
+          <ScalarProperty Name="AGERATING1" ColumnName="AGERATING" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMER">
+          <ScalarProperty Name="CUSTOMERID" ColumnName="CUSTOMERID" />
+          <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+          <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+          <ScalarProperty Name="CEMAIL" ColumnName="CEMAIL" />
+          <ScalarProperty Name="CPHONE" ColumnName="CPHONE" />
+          <ScalarProperty Name="CPASSWORD" ColumnName="CPASSWORD" />
+          <ScalarProperty Name="CDOB" ColumnName="CDOB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAYCATs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.DAYCAT">
+        <MappingFragment StoreEntitySet="DAYCAT">
+          <ScalarProperty Name="DAYCATID" ColumnName="DAYCATID" />
+          <ScalarProperty Name="DAYCATNAME" ColumnName="DAYCATNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIRECTORs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.DIRECTOR">
+        <MappingFragment StoreEntitySet="DIRECTOR">
+          <ScalarProperty Name="DIRECTORID" ColumnName="DIRECTORID" />
+          <ScalarProperty Name="DIRECTORNAME" ColumnName="DIRECTORNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEEs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEE">
+          <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+          <ScalarProperty Name="ELASTNAME" ColumnName="ELASTNAME" />
+          <ScalarProperty Name="EFIRSTNAME" ColumnName="EFIRSTNAME" />
+          <ScalarProperty Name="EEMAIL" ColumnName="EEMAIL" />
+          <ScalarProperty Name="EPHONE" ColumnName="EPHONE" />
+          <ScalarProperty Name="EPASSWORD" ColumnName="EPASSWORD" />
+          <ScalarProperty Name="EDOB" ColumnName="EDOB" />
+          <ScalarProperty Name="EADDRESS" ColumnName="EADDRESS" />
+          <ScalarProperty Name="EDATEOFWORK" ColumnName="EDATEOFWORK" />
+          <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GENREs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.GENRE">
+        <MappingFragment StoreEntitySet="GENRE">
+          <ScalarProperty Name="GENREID" ColumnName="GENREID" />
+          <ScalarProperty Name="GENRENAME" ColumnName="GENRENAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOVIEs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.MOVIE">
+        <MappingFragment StoreEntitySet="MOVIE">
+          <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+          <ScalarProperty Name="DIRECTORID" ColumnName="DIRECTORID" />
+          <ScalarProperty Name="NATIONID" ColumnName="NATIONID" />
+          <ScalarProperty Name="AGEID" ColumnName="AGEID" />
+          <ScalarProperty Name="MOVIENAME" ColumnName="MOVIENAME" />
+          <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="RELEASEDATE" ColumnName="RELEASEDATE" />
+          <ScalarProperty Name="MOVIESTATUS" ColumnName="MOVIESTATUS" />
+          <ScalarProperty Name="POSTER" ColumnName="POSTER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NATIONs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.NATION">
+        <MappingFragment StoreEntitySet="NATION">
+          <ScalarProperty Name="NATIONID" ColumnName="NATIONID" />
+          <ScalarProperty Name="NATIONNAME" ColumnName="NATIONNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARAMETERs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.PARAMETER">
+        <MappingFragment StoreEntitySet="PARAMETER">
+          <ScalarProperty Name="PARAMETERID" ColumnName="PARAMETERID" />
+          <ScalarProperty Name="PARAMETERDESCRIPTION" ColumnName="PARAMETERDESCRIPTION" />
+          <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+          <ScalarProperty Name="UNITOFMEASUREMENT" ColumnName="UNITOFMEASUREMENT" />
+          <ScalarProperty Name="APPLYCATION" ColumnName="APPLYCATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAYMENTs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.PAYMENT">
+        <MappingFragment StoreEntitySet="PAYMENT">
+          <ScalarProperty Name="PAYMENTID" ColumnName="PAYMENTID" />
+          <ScalarProperty Name="PAYMENTMETHOD" ColumnName="PAYMENTMETHOD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REVIEWs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.REVIEW">
+        <MappingFragment StoreEntitySet="REVIEW">
+          <ScalarProperty Name="REVIEWID" ColumnName="REVIEWID" />
+          <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+          <ScalarProperty Name="CUSTOMERID" ColumnName="CUSTOMERID" />
+          <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+          <ScalarProperty Name="VOTE" ColumnName="VOTE" />
+          <ScalarProperty Name="REVIEWDATE" ColumnName="REVIEWDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEATs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.SEAT">
+        <MappingFragment StoreEntitySet="SEAT">
+          <ScalarProperty Name="SEATID" ColumnName="SEATID" />
+          <ScalarProperty Name="THEATERID" ColumnName="THEATERID" />
+          <ScalarProperty Name="SEATNAME" ColumnName="SEATNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHOWTIMEs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.SHOWTIME">
+        <MappingFragment StoreEntitySet="SHOWTIME">
+          <ScalarProperty Name="SHOWTIMEID" ColumnName="SHOWTIMEID" />
+          <ScalarProperty Name="THEATERID" ColumnName="THEATERID" />
+          <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+          <ScalarProperty Name="STARTTIME" ColumnName="STARTTIME" />
+          <ScalarProperty Name="ENDTIME" ColumnName="ENDTIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THEATERs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.THEATER">
+        <MappingFragment StoreEntitySet="THEATER">
+          <ScalarProperty Name="THEATERID" ColumnName="THEATERID" />
+          <ScalarProperty Name="THEATERNAME" ColumnName="THEATERNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKETs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.TICKET">
+        <MappingFragment StoreEntitySet="TICKET">
+          <ScalarProperty Name="TICKETID" ColumnName="TICKETID" />
+          <ScalarProperty Name="PAYMENTID" ColumnName="PAYMENTID" />
+          <ScalarProperty Name="CUSTOMERID" ColumnName="CUSTOMERID" />
+          <ScalarProperty Name="SHOWTIMEID" ColumnName="SHOWTIMEID" />
+          <ScalarProperty Name="EMPLOYEEID" ColumnName="EMPLOYEEID" />
+          <ScalarProperty Name="TOTALTICKETS" ColumnName="TOTALTICKETS" />
+          <ScalarProperty Name="TOTALAMOUT" ColumnName="TOTALAMOUT" />
+          <ScalarProperty Name="TICKETSTATUS" ColumnName="TICKETSTATUS" />
+          <ScalarProperty Name="SELLDATE" ColumnName="SELLDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKETDETAILs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.TICKETDETAIL">
+        <MappingFragment StoreEntitySet="TICKETDETAIL">
+          <ScalarProperty Name="TICKETDETAILID" ColumnName="TICKETDETAILID" />
+          <ScalarProperty Name="TICKETID" ColumnName="TICKETID" />
+          <ScalarProperty Name="TICKETPRICEID" ColumnName="TICKETPRICEID" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="TOTALPRICE" ColumnName="TOTALPRICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKETPRICEs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.TICKETPRICE">
+        <MappingFragment StoreEntitySet="TICKETPRICE">
+          <ScalarProperty Name="TICKETPRICEID" ColumnName="TICKETPRICEID" />
+          <ScalarProperty Name="TICKETTYPEID" ColumnName="TICKETTYPEID" />
+          <ScalarProperty Name="DAYCATID" ColumnName="DAYCATID" />
+          <ScalarProperty Name="PRICETTICKET" ColumnName="PRICETTICKET" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKETSEATs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.TICKETSEAT">
+        <MappingFragment StoreEntitySet="TICKETSEAT">
+          <ScalarProperty Name="TICKETSEATID" ColumnName="TICKETSEATID" />
+          <ScalarProperty Name="TICKETDETAILID" ColumnName="TICKETDETAILID" />
+          <ScalarProperty Name="SEATID" ColumnName="SEATID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKETTYPEs">
+      <EntityTypeMapping TypeName="GalaxyCinemaModel.TICKETTYPE">
+        <MappingFragment StoreEntitySet="TICKETTYPE">
+          <ScalarProperty Name="TICKETTYPEID" ColumnName="TICKETTYPEID" />
+          <ScalarProperty Name="TICKETTYPENAME" ColumnName="TICKETTYPENAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="HASACTOR" TypeName="GalaxyCinemaModel.HASACTOR" StoreEntitySet="HASACTOR">
+      <EndProperty Name="ACTOR">
+        <ScalarProperty Name="ACTORID" ColumnName="ACTORID" />
+      </EndProperty>
+      <EndProperty Name="MOVIE">
+        <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HASGENRE" TypeName="GalaxyCinemaModel.HASGENRE" StoreEntitySet="HASGENRE">
+      <EndProperty Name="MOVIE">
+        <ScalarProperty Name="MOVIEID" ColumnName="MOVIEID" />
+      </EndProperty>
+      <EndProperty Name="GENRE">
+        <ScalarProperty Name="GENREID" ColumnName="GENREID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

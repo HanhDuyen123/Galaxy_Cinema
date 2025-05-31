@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -131,89 +134,101 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Attribute\CustomAuthorizeAttribute.cs" />
     <Compile Include="Controllers\ACTORsController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\DAYCATsController.cs" />
     <Compile Include="Controllers\DIRECTORsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\RevenueController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ACTOR.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AGERATING.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookingRequest.cs" />
     <Compile Include="Models\CUSTOMER.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAYCAT.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DayCategoryEditViewModel.cs" />
+    <Compile Include="Models\DayTypeParameterModel.cs" />
     <Compile Include="Models\DIRECTOR.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EMPLOYEE.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GalaxyModel.Context.cs">
+    <Compile Include="Models\GalaxyCinema.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GalaxyModel.Context.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GalaxyModel.cs">
+    <Compile Include="Models\GalaxyCinema.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GalaxyModel.Designer.cs">
+    <Compile Include="Models\GalaxyCinema.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GalaxyModel.edmx</DependentUpon>
+      <DependentUpon>GalaxyCinema.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\GENRE.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MOVIE.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MovieShowtimesViewModel.cs" />
     <Compile Include="Models\NATION.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PARAMETER.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PAYMENT.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Revenue.cs" />
     <Compile Include="Models\REVIEW.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SEAT.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SeatBookingRequest.cs" />
+    <Compile Include="Models\SeatRowViewModel.cs" />
+    <Compile Include="Models\SeatSelectionViewModel.cs" />
+    <Compile Include="Models\SeatViewModel.cs" />
     <Compile Include="Models\SHOWTIME.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\THEATER.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TICKET.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TICKETDETAIL.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TICKETPRICE.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TICKETSEAT.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TICKETTYPE.cs">
-      <DependentUpon>GalaxyModel.tt</DependentUpon>
+      <DependentUpon>GalaxyCinema.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -235,31 +250,37 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\StyleLayout.css" />
+    <Content Include="Content\_StyleBooking.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\GalaxyModel.Context.tt">
+    <Content Include="Models\GalaxyCinema.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GalaxyModel.edmx</DependentUpon>
-      <LastGenOutput>GalaxyModel.Context.cs</LastGenOutput>
+      <DependentUpon>GalaxyCinema.edmx</DependentUpon>
+      <LastGenOutput>GalaxyCinema.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\GalaxyModel.tt">
+    <Content Include="Models\GalaxyCinema.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GalaxyModel.edmx</DependentUpon>
-      <LastGenOutput>GalaxyModel.cs</LastGenOutput>
+      <DependentUpon>GalaxyCinema.edmx</DependentUpon>
+      <LastGenOutput>GalaxyCinema.cs</LastGenOutput>
     </Content>
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\GalaxyModel.edmx">
+    <Content Include="App_Browsers\qt.browser" />
+    <EntityDeploy Include="Models\GalaxyCinema.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GalaxyModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>GalaxyCinema.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\GalaxyModel.edmx.diagram">
-      <DependentUpon>GalaxyModel.edmx</DependentUpon>
+    <Content Include="Models\GalaxyCinema.edmx.diagram">
+      <DependentUpon>GalaxyCinema.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -271,6 +292,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modal.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -294,21 +316,38 @@
     <Content Include="Views\Revenue\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Views\movie\Index.cshtml" />
-    <Content Include="Views\movie\Create.cshtml" />
-    <Content Include="Views\movie\HomeMovie.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
-    <Content Include="Views\Movies\Search.cshtml" />
-    <Content Include="Views\Movies\Details.cshtml" />
-    <Content Include="Views\Movies\Create.cshtml" />
     <Content Include="Views\DIRECTORs\Create.cshtml" />
     <Content Include="Views\DIRECTORs\Delete.cshtml" />
     <Content Include="Views\DIRECTORs\Details.cshtml" />
     <Content Include="Views\DIRECTORs\Edit.cshtml" />
     <Content Include="Views\DIRECTORs\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutPDF.cshtml" />
+    <Content Include="Views\Revenue\RevenuePdf.cshtml" />
+    <Content Include="Views\Movies\Create.cshtml" />
+    <Content Include="Views\Movies\Delete.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Movies\Edit.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Booking\Details.cshtml" />
+    <Content Include="Views\Booking\Create.cshtml" />
+    <Content Include="Views\Booking\PartialViews\_MovieShowtimes.cshtml" />
+    <Content Include="Views\Booking\PartialViews\_EditDayCategoryModal.cshtml" />
+    <Content Include="Views\DAYCATs\Index.cshtml" />
+    <Content Include="Views\DAYCATs\Delete.cshtml" />
+    <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\Schedule\Edit.cshtml" />
+    <Content Include="Views\Schedule\Create.cshtml" />
+    <Content Include="Views\Schedule\Delete.cshtml" />
+    <Content Include="Views\Schedule\Details.cshtml" />
+    <Content Include="Views\Revenue\View.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Img\" />
+    <Folder Include="FilePDF\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

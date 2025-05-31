@@ -1,0 +1,633 @@
+﻿@model GalaxyCinema.Models.SeatSelectionViewModel
+@{
+    ViewBag.Title = "Chọn ghế";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .edit-day-btn {
+        width: 40px;
+        height: 38px;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        background-color: white;
+        color: #6c757d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+        .edit-day-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.02);
+        }
+
+    /* Thêm style cho hiển thị ghế chi tiết */
+    .seat-detail-item {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 8px 12px;
+        margin-bottom: 5px;
+    }
+
+    .seat-numbers {
+        font-size: 0.9em;
+        color: #6c757d;
+        margin-top: 3px;
+    }
+</style>
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-8">
+            <h4 class="mb-3">Đổi suất chiếu</h4>
+
+            <div class="showtime-selection mb-4 d-flex row">
+                <div class="col-xl-6 col-md-12">
+                    @{
+                        var now = DateTime.Now;
+                        Console.WriteLine(now);
+                        var currentShowtimeDate = Model.Showtime.STARTTIME.Date;
+                        var isToday = currentShowtimeDate == now.Date;
+                        Console.WriteLine(currentShowtimeDate);
+
+                        // Lọc các suất chiếu có thể thay đổi
+                        var availableShowtimes = Model.OtherShowtimes.Where(s =>
+                        {
+                            // Nếu là ngày hôm nay, chỉ hiển thị suất chiếu có thời gian > hiện tại
+                            if (s.STARTTIME.Date == now.Date)
+                            {
+                                return s.STARTTIME > now;
+                            }
+                            // Nếu là ngày khác (tương lai), hiển thị tất cả
+                            else if (s.STARTTIME.Date > now.Date)
+                            {
+                                return true;
+                            }
+                            // Không hiển thị suất chiếu trong quá khứ
+                            return false;
+                        }).OrderBy(s => s.STARTTIME);
+                    }
+
+                    @if (availableShowtimes.Any())
+                    {
+                        foreach (var time in availableShowtimes)
+                        {
+                            string activeClass = time.SHOWTIMEID == Model.Showtime.SHOWTIMEID ? "active" : "";
+                            string timeClass = "";
+                            string timeText = time.STARTTIME.ToString("HH:mm");
+                            Console.WriteLine(activeClass);
+
+                            // Thêm class đặc biệt nếu là suất chiếu sắp bắt đầu (trong vòng 30 phút)
+
+
+                            <a href="@Url.Action("ChangeShowtime", "Booking", new { newShowtimeId = time.SHOWTIMEID })"
+                               class="btn btn-outline-primary showtime-btn @activeClass @timeClass"
+                               title="Suất chiếu lúc @time.STARTTIME.ToString("HH:mm") - @time.STARTTIME.ToString("dd/MM/yyyy")">
+                                @timeText
+                            </a>
+                        }
+                    }
+                    else
+                    {
+                        <div class="alert alert-info mb-0">
+                            <i class="fas fa-info-circle"></i>
+                            @if (isToday)
+                            {
+                                <span>Không có suất chiếu nào khác có thể thay đổi trong ngày hôm nay.</span>
+                            }
+                            else
+                            {
+                                <span>Không có suất chiếu nào khác có sẵn cho ngày này.</span>
+                            }
+                        </div>
+                    }
+                </div>
+                <div class="form-group col-xl-4 col-lg-12 ms-lg-2">
+                    <div>
+                        Kiểu ngày:
+                    </div>
+                    <div class="d-flex flex-row">
+                        <input type="text" id="currentDayCatName" class="form-control mt-2"
+                               value="@Model.CurrentDayCatName" disabled />
+                        <input type="hidden" id="dayCatId" value="@Model.CurrentDayCatId" />
+                        <button class="btn btn-primary ms-3 mt-2" onclick="openDayTypeModal()">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                    </div>
+
+                    @* Container để chèn partial view *@
+                    <div id="modalContainer">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="theater-layout mt-5">
+                <div class="seats-container">
+                    @foreach (var row in Model.SeatsByRow)
+                    {
+                        <div class="seat-row">
+                            <div class="row-label">@row.Key</div>
+                            <div class="seats">
+                                @foreach (var seat in row.Value)
+                                {
+                                    var occupied = !Model.SeatAvailability[seat.SEATID];
+                                    var selected = Model.SelectedSeatIds.Contains(seat.SEATID);
+                                    <div class="seat @(occupied ? "occupied" : selected ? "selected" : "available")"
+                                         data-seat-id="@seat.SEATID"
+                                         data-seat-name="@seat.SEATNAME.Substring(1)"
+                                         data-seat-row="@row.Key"
+                                         data-seat-full-name="@seat.SEATNAME"
+                                         data-status="@(occupied ? "occupied" : selected ? "selected" : "available")">
+                                        @seat.SEATNAME.Substring(1)
+                                    </div>
+                                }
+                            </div>
+                            <div class="row-label">@row.Key</div>
+                        </div>
+                    }
+                </div>
+
+                <div class="screen mt-4">
+                    <div class="screen-label">Màn hình</div>
+                </div>
+
+                <div class="seat-legend mt-4">
+                    <div class="legend-item">
+                        <div class="seat-sample available"></div>
+                        <span>Ghế trống</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="seat-sample occupied"></div>
+                        <span>Ghế đã bán</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="seat-sample selected"></div>
+                        <span>Ghế đang chọn</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal chọn loại tuổi -->
+        <div id="ageModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-white">
+                            Chọn loại tuổi cho ghế
+                        </h5>
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <select id="ageCategorySelect" class="form-control">
+                            @foreach (var tt in Model.TicketTypes)
+                            {
+                                <option value="@tt.TICKETTYPEID">
+                                    @tt.TICKETTYPENAME
+                                </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Hủy
+                        </button>
+                        <button type="button" id="confirmAgeBtn" class="btn btn-primary">
+                            Xác nhận
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="movie-info-card p-3">
+                <div class="row">
+                    <div class="col-5">
+                        <img src="@Url.Content(Model.Showtime.MOVIE.POSTER)"
+                             alt="@Model.Showtime.MOVIE.MOVIENAME"
+                             class="img-fluid movie-poster mb-3" />
+                    </div>
+
+
+                </div>
+
+                <h5 class="movie-title">@Model.Showtime.MOVIE.MOVIENAME</h5>
+                <div class="movie-details mb-3">
+                    <p>2D Phụ Đề - @Model.Showtime.MOVIE.AGERATING.AGERATING1</p>
+                    <p>Rạp @Model.Showtime.THEATERID</p>
+                    <p>
+                        Suất: @Model.Showtime.STARTTIME.ToString("HH:mm")
+                        - Thứ @GetDayOfWeek(Model.Showtime.STARTTIME.DayOfWeek),
+                        @Model.Showtime.STARTTIME.ToString("dd/MM/yyyy")
+                    </p>
+                </div>
+
+                <div class="selected-seats mb-3">
+                    <div id="selectedSeatsList" class="list-group mb-2">
+                        <!-- JS sẽ inject nhóm vé và subtotal vào đây -->
+                    </div>
+                    <h5>Tạm tính: <span class="total-price">0₫</span></h5>
+                </div>
+
+                <div class="booking-actions">
+                    <a href="@Url.Action("Index", "Booking")" class="btn btn-outline-primary mr-2">
+                        Quay lại
+                    </a>
+                    <button id="continueBtn" class="btn btn-primary" disabled>
+                        Đặt vé
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="successModal" class="modal fade" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); border: none; border-radius: 15px;">
+                    <div class="modal-header border-0 text-center">
+
+                        <div class="w-100">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-check-circle text-success" style="font-size: 2rem;"></i>
+                            </div>
+                            <h5 class="modal-title text-white text-center w-100 mb-0">
+                                <strong>ĐẶT VÉ THÀNH CÔNG!</strong>
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="modal-body px-4 pb-4">
+                        <!-- Galaxy Cinema Ticket Card -->
+                        <div class="ticket-card bg-white rounded shadow-lg p-4 mx-auto" style="max-width: 950px; border: 2px solid #ddd;">
+                            <!-- Header -->
+                            <div class="text-center border-bottom pb-3 mb-3">
+                                <h5 class="mb-1" style="color: #1e3c72; font-weight: bold;">GALAXY CINEMA</h5>
+                                <p class="mb-1 text-muted small">Công ty CP phim Thiên Ngân – CN Khánh Hòa</p>
+                                <p class="mb-0 text-muted small">Tầng 3 Nha Trang Center, số 20 Trần Phú, P. Lộc Thọ, TP. Nha Trang, Khánh Hòa</p>
+                                <h6 class="mt-2 mb-0" style="color: #1e3c72; font-weight: bold;">GALAXY NHA TRANG</h6>
+                            </div>
+
+                            <!-- Movie & Showtime Info -->
+                            <div class="row mb-3">
+                                <div class="col-4">
+                                    <table class="table table-sm table-borderless mb-0">
+                                        <tr><td class="fw-bold text-muted small">PHIM – RẠP</td></tr>
+                                        <tr><td class="small">Phim:</td><td id="movieName" class="small">............</td></tr>
+                                        <tr><td class="small">Rạp:</td><td id="theaterName" class="small">............</td></tr>
+                                    </table>
+                                </div>
+                                <div class="col-4">
+                                    <table class="table table-sm table-borderless mb-0">
+                                        <tr><td class="fw-bold text-muted small text-center">NGÀY CHIẾU – SUẤT</td></tr>
+                                        <tr><td class="small">Ngày chiếu:</td><td id="showDate" class="small">__/__/____</td></tr>
+                                        <tr><td class="small">Suất chiếu:</td><td id="showTime" class="small">__:__</td></tr>
+                                    </table>
+                                </div>
+                                <div class="col-4">
+                                    <table class="table table-sm table-borderless mb-0">
+                                        <tr><td class="fw-bold text-muted small text-center">LOẠI NGÀY</td></tr>
+                                        <tr><td id="dayType" class="small text-center">[Thường/Cuối tuần/Lễ/Happy Day]</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Ticket Details -->
+                            <div class="border-top pt-3 mb-3">
+                                <table class="table table-sm mb-0">
+                                    <thead>
+                                        <tr class="border-bottom">
+                                            <th class="fw-bold text-muted small">Loại vé</th>
+                                            <th class="fw-bold text-muted small text-center">Đơn giá (VNĐ)</th>
+                                            <th class="fw-bold text-muted small text-center">Ghế</th>
+                                            <th class="fw-bold text-muted small text-center">Số lượng</th>
+                                            <th class="fw-bold text-muted small text-end">Thành tiền (VNĐ)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ticketDetailsBody">
+                                        <!-- Dynamic content will be inserted here -->
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="border-top">
+                                            <td colspan="3" class="fw-bold small">Tổng cộng</td>
+                                            <td id="totalQuantity" class="text-center fw-bold small">...........</td>
+                                            <td id="totalAmountDisplay" class="text-end fw-bold small">............VNĐ</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+
+                            <!-- Payment & Staff Info -->
+                            <div class="row border-top pt-3">
+                                <div class="col-3">
+                                    <p class="mb-1 small"><strong>Phương thức thanh toán:</strong></p>
+                                    <p id="paymentMethod" class="small">[Tiền mặt/Chuyển khoản]</p>
+                                </div>
+                                <div class="col-9">
+                                    <table class="table table-sm table-borderless mb-0">
+                                        <tr><td class="fw-bold text-muted small text-center">NHÂN VIÊN GIAO DỊCH</td></tr>
+                                        <tr>
+                                            <td class="small">Mã nhân viên:</td>
+                                            <td id="staffId" class="small">............</td>
+                                            <td class="small ps-3">Thời gian:</td>
+                                            <td id="sellTime" class="small">__:__ __/__/____</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="small">Tên nhân viên:</td>
+                                            <td id="staffName" class="small" colspan="3">............</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Ticket ID -->
+                            <div class="text-center mt-3 pt-3 border-top">
+                                <h6 class="mb-0" style="color: #1e3c72;">Mã vé: <span id="ticketIdDisplay" class="fw-bold">............</span></h6>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="text-center mt-4">
+
+                            <button type="button" class="btn btn-light" onclick="closeSuccessModal()">
+                                <i class="fas fa-home me-2"></i>Về trang chủ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        function formatCurrency(v) {
+            return v.toLocaleString('vi-VN') + '₫';
+        }
+        $(document).ready(function () {
+            var selectedSeats = [];
+            var showtimeId = @Model.Showtime.SHOWTIMEID;
+            var dayCatId = @Model.CurrentDayCatId;
+            var validationTimer;
+
+            $('.seat.available').on('click', function () {
+                var $this = $(this);
+                var seatId = $this.data('seat-id');
+                var seatName = $this.data('seat-name');
+                var seatRow = $this.data('seat-row');
+                var seatFullName = $this.data('seat-full-name');
+
+                if ($this.hasClass('selected')) {
+                    // Bỏ chọn
+                    selectedSeats = selectedSeats.filter(s => s.id !== seatId);
+                    $this.removeClass('selected');
+                    updateSelection();
+                } else {
+                    // Hiển thị modal chọn loại tuổi
+                    $('#ageModal').data('seat-id', seatId)
+                                   .data('seat-name', seatName)
+                                   .data('seat-row', seatRow)
+                                   .data('seat-full-name', seatFullName)
+                                   .modal('show');
+                }
+            });
+
+            $('#confirmAgeBtn').on('click', function() {
+                var seatId = $('#ageModal').data('seat-id');
+                var seatName = $('#ageModal').data('seat-name');
+                var seatRow = $('#ageModal').data('seat-row');
+                var seatFullName = $('#ageModal').data('seat-full-name');
+                var ageCat = parseInt($('#ageCategorySelect').val());
+
+                // AJAX lấy giá
+                $.post('@Url.Action("GetTicketPrice", "Booking")', {
+                    ticketTypeId: ageCat,
+                    dayCatId: dayCatId
+                }, function(res) {
+                    if (res.success) {
+                        selectedSeats.push({
+                            id: seatId,
+                            name: seatName,
+                            row: seatRow,
+                            fullName: seatFullName,
+                            ageCategory: ageCat,
+                            price: res.price
+                        });
+
+                        $('.seat[data-seat-id="'+seatId+'"]').addClass('selected');
+                        updateSelection();
+                        startValidationTimer();
+                    }
+                });
+
+                $('#ageModal').modal('hide');
+            });
+
+            function updateSelection() {
+                var $list = $('#selectedSeatsList').empty();
+                var total = 0;
+
+                var groups = {};
+                selectedSeats.forEach(s => {
+                    if (!groups[s.ageCategory]) groups[s.ageCategory] = [];
+                    groups[s.ageCategory].push(s);
+                    total += s.price;
+                });
+
+                for (var cat in groups) {
+                    var displayName = {
+                        3: 'Người lớn',
+                        2: 'Người cao tuổi/trẻ em',
+                        1: 'U22',
+                    }[cat];
+
+                    var count = groups[cat].length;
+                    var subtotal = groups[cat].reduce((sum, s) => sum + s.price, 0);
+                    var seatDetails = groups[cat].map(s => s.fullName).sort().join(', ');
+
+                    var groupHtml =
+                        '<div class="seat-detail-item">' +
+                            '<div class="d-flex justify-content-between align-items-start">' +
+                                '<div>' +
+                                    '<strong>' + displayName + ' x ' + count + '</strong>' +
+                                    '<div class="seat-numbers">Ghế: ' + seatDetails + '</div>' +
+                                '</div>' +
+                                '<span class="fw-bold">' + formatCurrency(subtotal) + '</span>' +
+                            '</div>' +
+                        '</div>';
+
+                    $list.append(groupHtml);
+                }
+
+                $('.total-price').text(formatCurrency(total));
+                $('#continueBtn').prop('disabled', selectedSeats.length === 0);
+            }
+
+            // Validate ghế real-time
+            function startValidationTimer() {
+                clearTimeout(validationTimer);
+                validationTimer = setTimeout(function() {
+                    validateSeats();
+                }, ); // Check mỗi 5 giây
+            }
+
+            function validateSeats() {
+                if (selectedSeats.length === 0) return;
+
+                var seatIds = selectedSeats.map(s => s.id);
+                $.post('@Url.Action("ValidateSeats", "Booking")', {
+                    showtimeId: showtimeId,
+                    seatIds: seatIds
+                }, function(res) {
+                    if (res.success && res.unavailableSeats.length > 0) {
+                        // Có ghế bị người khác đặt
+                        res.unavailableSeats.forEach(function(seatId) {
+                            selectedSeats = selectedSeats.filter(s => s.id !== seatId);
+                            $('.seat[data-seat-id="'+seatId+'"]')
+                                .removeClass('selected')
+                                .addClass('occupied')
+                                .off('click');
+                        });
+
+                        updateSelection();
+                      /*  alert('Một số ghế đã được đặt bởi người khác và đã được bỏ chọn.');*/
+                    }
+
+                    if (selectedSeats.length > 0) {
+                        startValidationTimer();
+                    }
+                });
+            }
+
+            // Process booking
+             $('#continueBtn').on('click', function() {
+        if (selectedSeats.length === 0) {
+            alert('Vui lòng chọn ít nhất một ghế');
+            return;
+        }
+
+        $(this).prop('disabled', true).text('Đang xử lý...');
+
+        var bookingData = {
+            ShowtimeId: showtimeId,
+            DayCatId: dayCatId,
+            CustomerId: null,
+            StaffId: 1,
+            SelectedSeats: selectedSeats.map(s => ({
+                SeatId: s.id,
+                TicketTypeId: s.ageCategory
+            }))
+        };
+
+        $.ajax({
+            url: '@Url.Action("ProcessBooking", "Booking")',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(bookingData),
+            success: function(response) {
+                if (response.success) {
+                    showSuccessModal(response.ticketDetails);
+                } else {
+                    alert('Lỗi: ' + response.message);
+                    $('#continueBtn').prop('disabled', false).text('Tiếp tục');
+                }
+            },
+            error: function() {
+                alert('Lỗi kết nối server');
+                $('#continueBtn').prop('disabled', false).text('Tiếp tục');
+            }
+        });
+
+
+        // Start validation nếu có ghế đã chọn sẵn
+        if (selectedSeats.length > 0) {
+            startValidationTimer();
+        }
+    });
+
+        });
+         function showSuccessModal(ticketDetails) {
+            // Điền thông tin cơ bản lên modal
+            $('#movieName').text(ticketDetails.MovieName);
+            $('#theaterName').text(ticketDetails.TheaterName);
+            $('#showDate').text(ticketDetails.ShowDate);
+            $('#showTime').text(ticketDetails.ShowTime);
+            $('#dayType').text(ticketDetails.DayType);
+            $('#ticketIdDisplay').text(ticketDetails.TicketId);
+            $('#paymentMethod').text(ticketDetails.PaymentMethod);
+            $('#staffId').text(ticketDetails.StaffId || '001');
+            $('#staffName').text(ticketDetails.StaffName);
+            $('#sellTime').text(new Date().toLocaleString('vi-VN'));
+            $('#totalQuantity').text(ticketDetails.TotalTickets);
+            $('#totalAmountDisplay').text(formatCurrency(ticketDetails.TotalAmount));
+
+            // Tạo chi tiết vé theo nhóm loại vé
+            var ticketDetailsBody = $('#ticketDetailsBody').empty();
+
+            var seatGroups = {};
+            ticketDetails.Seats.forEach(function (seat) {
+                if (!seatGroups[seat.TicketType]) {
+                    seatGroups[seat.TicketType] = {
+                        seats: [],
+                        price: seat.Price,
+                        count: 0
+                    };
+                }
+                seatGroups[seat.TicketType].seats.push(seat.SeatName);
+                seatGroups[seat.TicketType].count++;
+            });
+
+            for (var ticketType in seatGroups) {
+                var group = seatGroups[ticketType];
+                var seatNames = group.seats.sort().join(', ');
+                var subtotal = group.price * group.count;
+
+                var row = `
+                    <tr>
+                        <td class="small">${ticketType}</td>
+                        <td class="text-center small">${formatCurrency(group.price)}</td>
+                        <td class="text-center small">${seatNames}</td>
+                        <td class="text-center small">${group.count}</td>
+                        <td class="text-end small">${formatCurrency(subtotal)}</td>
+                    </tr>
+                `;
+                ticketDetailsBody.append(row);
+            }
+
+            // Hiển thị modal
+            $('#successModal').modal('show');
+        }
+
+        // Đóng modal thành công và chuyển về trang Booking Index
+        function closeSuccessModal() {
+            $('#successModal').modal('hide');
+            window.location.href = '@Url.Action("Index", "Booking")';
+        }
+    </script>
+}
+
+<script src="~/Scripts/modal.js"></script>
+
+@functions {
+    string GetDayOfWeek(DayOfWeek day)
+    {
+        switch (day)
+        {
+            case DayOfWeek.Monday: return "Hai";
+            case DayOfWeek.Tuesday: return "Ba";
+            case DayOfWeek.Wednesday: return "Tư";
+            case DayOfWeek.Thursday: return "Năm";
+            case DayOfWeek.Friday: return "Sáu";
+            case DayOfWeek.Saturday: return "Bảy";
+            case DayOfWeek.Sunday: return "Chủ Nhật";
+            default: return "";
+        }
+    }
+}

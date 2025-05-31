@@ -1,0 +1,226 @@
+﻿@model GalaxyCinema.Models.DayTypeParameterModel
+<!-- Modal Chỉnh Sửa Loại Ngày -->
+<div class="modal fade" id="editDayTypeModal" tabindex="-1" role="dialog" aria-labelledby="dayTypeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="dayTypeModalLabel">Chỉnh Sửa Loại Ngày</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="dayTypeForm">
+                    <!-- Ngày Thường -->
+                    <div class="form-group">
+                        <div class="fs-6 fw-bold">Ngày Thường</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayThuong" value="Monday"> Thứ Hai
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayThuong" value="Tuesday"> Thứ Ba
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayThuong" value="Wednesday"> Thứ Tư
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayThuong" value="Thursday"> Thứ Năm
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayThuong" value="Friday"> Thứ Sáu
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayThuong" value="Saturday"> Thứ Bảy
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayThuong" value="Sunday"> Chủ Nhật
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Happy Day -->
+                    <div class="form-group">
+                        <div class="fs-6 fw-bold">Happy Day</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="HappyDay" value="Monday"> Thứ Hai
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="HappyDay" value="Tuesday"> Thứ Ba
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="HappyDay" value="Wednesday"> Thứ Tư
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="HappyDay" value="Thursday"> Thứ Năm
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="HappyDay" value="Friday"> Thứ Sáu
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="HappyDay" value="Saturday"> Thứ Bảy
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="HappyDay" value="Sunday"> Chủ Nhật
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Ngày Cuối Tuần -->
+                    <div class="form-group">
+                        <div class="fs-6 fw-bold">Ngày Cuối Tuần</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayCuoiTuan" value="Monday"> Thứ Hai
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayCuoiTuan" value="Tuesday"> Thứ Ba
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayCuoiTuan" value="Wednesday"> Thứ Tư
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayCuoiTuan" value="Thursday"> Thứ Năm
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayCuoiTuan" value="Friday"> Thứ Sáu
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayCuoiTuan" value="Saturday"> Thứ Bảy
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="NgayCuoiTuan" value="Sunday"> Chủ Nhật
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <!-- HTML cho dropdown tháng/ngày -->
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <label for="monthSelect" class="form-label">Tháng</label>
+                            <select id="monthSelect" class="form-select"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="daySelect" class="form-label">Ngày</label>
+                            <select id="daySelect" class="form-select"></select>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-end">
+                            <button id="addBtn" type="button" class="btn btn-primary btn-sm">
+                                <i class="fa fa-plus"></i> Thêm
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bảng hiển thị -->
+                    <div class="table-responsive">
+                        <table class="table table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>Ngày lễ</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="holidaysContainer">
+                                <tr>
+                                    <td colspan="2" class="text-muted py-3">Chưa có ngày lễ nào.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+
+
+
+                </form>
+
+                <!-- Alert message -->
+                <div id="alertMessage" class="alert" style="display: none;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button id="saveDayTypeBtn" class="btn btn-primary">Lưu Cài Đặt</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .checkbox-inline {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+        .checkbox-inline input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+    .alert {
+        margin-top: 15px;
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+    }
+</style>
+
+

@@ -1,0 +1,51 @@
+﻿@model GalaxyCinema.Models.SHOWTIME
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SHOWTIME</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.STARTTIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STARTTIME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENDTIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENDTIME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MOVIE.MOVIENAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOVIE.MOVIENAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THEATER.THEATERNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THEATER.THEATERNAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SHOWTIMEID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
