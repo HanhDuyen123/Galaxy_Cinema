@@ -57,15 +57,18 @@
                     </dd>
 
                     <dt class="col-sm-4">🌎 Quốc gia</dt>
-                    <dd class="col-sm-8">@Model.NATION?.NATIONNAME ?? "Không có"</dd>
+                    <dd class="col-sm-8">@(!string.IsNullOrEmpty(Model.NATION?.NATIONNAME) ? Model.NATION.NATIONNAME : "Không có")</dd>
+                    @*<dd class="col-sm-8">@Model.NATION?.NATIONNAME ?? "Không có"</dd>*@
 
                     <dt class="col-sm-4">📅 Ngày phát hành</dt>
                     <dd class="col-sm-8">@Model.RELEASEDATE.ToString("dd/MM/yyyy")</dd>
 
                     <dt class="col-sm-4">🔞 Xếp hạng độ tuổi</dt>
-                    <dd class="col-sm-8"><span class="badge bg-secondary">
-    @(ageValue != null ? ageValue : "N/A")
-</span></dd>
+                    <dd class="col-sm-8">
+                        <span class="badge bg-secondary">
+                            @(!string.IsNullOrEmpty(Model.AGERATING?.AGERATING1) ? Model.AGERATING.AGERATING1: "Không có")
+                        </span>
+                    </dd>
 
                     @if (!string.IsNullOrWhiteSpace(Model.MOVIESTATUS))
                     {
